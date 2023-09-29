@@ -32,8 +32,7 @@
         -# Corresponds to guideline div above
         %div.hidden.visible-xs-block
           %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
-            %button.btn.btn-block.btn-primary#tagline
-               = t("defaults.tagline",:city => c("city.name"))
+            %button.btn.btn-block.btn-primary#tagline = t("defaults.tagline",:city => c("city.name"))
         #logos
           .row.sidebar-logo-row
             .col-xs-1

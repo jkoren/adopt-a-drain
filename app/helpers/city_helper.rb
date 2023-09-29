@@ -58,9 +58,10 @@ module CityHelper
   def self.load!(city_config_dir, brand_config_dir)
     @@brands = {}
     Dir[File.join(brand_config_dir, '*.yml')].each do |config|
-      brand_name = File.basename(config, '.yml')
-      brand = BrandSchema.load(config)
-      @@brands[brand_name] = brand
+      puts "looking at brands"
+      # brand_name = File.basename(config, '.yml')
+      # brand = BrandSchema.load(config)
+      # @@brands[brand_name] = brand
     end
 
     base = File.join(city_config_dir, 'base.yml')
@@ -72,7 +73,7 @@ module CityHelper
       city_name = File.basename(config, '.yml')
       city = Schema.load(base, config)
 
-      city.brand = @@brands.fetch(city.site.brand)
+      # city.brand = @@brands.fetch(city.site.brand)
       
       @@cities[city_name] = city.to_dot
       city.site.domains.each do |domain|
@@ -152,25 +153,27 @@ class Schema
   end
 end
 
-class BrandSchema
-  def self.load_yml(config)
-    file_contents = IO.read(config)
-    file_contents = ERB.new(file_contents).result
-    YAML.safe_load(file_contents)
-  end
+# class BrandSchema
+#   def self.load_yml(config)
+#     file_contents = IO.read(config)
+#     puts("file_contents")
+#     puts(file_contents)
+#     file_contents = ERB.new(file_contents).result
+#     YAML.safe_load(file_contents)
+#   end
 
-  def self.load(config)
-    yml = load_yml(config)
-    result = @@schema.call(yml)
-    errors = result.errors(full: true).to_h
-    raise "Error validating #{config}:\n#{errors}" unless errors.empty?
+#   def self.load(config)
+#     yml = load_yml(config)
+#     result = @@schema.call(yml)
+#     errors = result.errors(full: true).to_h
+#     raise "Error validating #{config}:\n#{errors}" unless errors.empty?
 
-    result.to_h.to_dot
-  end
+#     result.to_h.to_dot
+#   end
 
-  @@schema = Dry::Schema.Params do
-    required(:name).filled(:string)
-  end
-end
+#   @@schema = Dry::Schema.Params do
+#     required(:name).filled(:string)
+#   end
+# end
 
 CityHelper.load! File.expand_path('../../config/cities', __dir__), File.expand_path('../../config/brands', __dir__)
