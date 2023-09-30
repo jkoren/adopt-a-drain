@@ -58,10 +58,9 @@ module CityHelper
   def self.load!(city_config_dir, brand_config_dir)
     @@brands = {}
     Dir[File.join(brand_config_dir, '*.yml')].each do |config|
-      puts "looking at brands"
-      # brand_name = File.basename(config, '.yml')
-      # brand = BrandSchema.load(config)
-      # @@brands[brand_name] = brand
+      brand_name = File.basename(config, '.yml')
+      brand = BrandSchema.load(config)
+      @@brands[brand_name] = brand
     end
 
     base = File.join(city_config_dir, 'base.yml')
@@ -73,7 +72,7 @@ module CityHelper
       city_name = File.basename(config, '.yml')
       city = Schema.load(base, config)
 
-      # city.brand = @@brands.fetch(city.site.brand)
+      city.brand = @@brands.fetch(city.site.brand)
       
       @@cities[city_name] = city.to_dot
       city.site.domains.each do |domain|
@@ -156,8 +155,6 @@ end
 class BrandSchema
   def self.load_yml(config)
     file_contents = IO.read(config)
-    puts("****************file_contents")
-    puts(file_contents)
     file_contents = ERB.new(file_contents).result
     YAML.safe_load(file_contents)
   end

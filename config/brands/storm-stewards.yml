@@ -1,12 +1,12 @@
 name: Storm Stewards
 brand_name: Storm Stewards
 button_adopt: Claim! #button.adopt
-update_report: %{title} import (%{deleted_adopted_count} claimed %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} unclaimed %{things} removed)" #subjects.update_report
+update_report: "%{title} import (%{deleted_adopted_count} claimed %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} unclaimed %{things} removed)" #subjects.update_report
 default_tagline: What does it mean to be a Storm Steward? #default.tagline
 notices_adopted: You just claimed a drain #notices.adopted 
 title_adopt: Claim this drain
 title_adopted:  This drain has been claimed
-title_adopted_tagline: {count} drains claimed in %{city}
+title_adopted_tagline: "{count} drains claimed in %{city}"
 title_main: Storm Stewards %{city}
 sign_in: Sign in to be a Storm Steward
 thank_you: Thank you for claiming this %{thing}!
