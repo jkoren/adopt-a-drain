@@ -48,7 +48,9 @@ class ThingMailer < ApplicationMailer
                 deleted_adopted_count: deleted_things_with_adoptee.count,
                 created_count: created_things.count,
                 deleted_unadopted_count: deleted_things_no_adoptee.count,
-                things: t('defaults.things'))
+                things: t('defaults.things'),
+                adopted: c('brand.pastTenseVerb')
+              ) 
     mail(to: User.where(admin: true).pluck(:email), subject: subject)
   end
   # rubocop:enable Metrics/AbcSize

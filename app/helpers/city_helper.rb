@@ -174,11 +174,25 @@ class BrandSchema
 
   @@schema = Dry::Schema.Params do
     required(:name).filled(:string)
-    required(:imperative).filled(:string)
-    required(:past_tense_verb).filled(:string)
-    required(:details_partial_name).filled(:string)
+    required(:brand_name).filled(:string)
+    required(:button_adopt).filled(:string)
+    required(:update_report).filled(:string)
+    required(:default_tagline).filled(:string)
+    required(:notices_adopted).filled(:string)
+    required(:title_adopt).filled(:string)
+    required(:title_adopted).filled(:string)
+    required(:title_adopted_tagline).filled(:string)
+    required(:title_main).filled(:string)
+    required(:sign_in).filled(:string)
+    required(:thank_you).filled(:string)
+    required(:title_email_text).filled(:string)
+    required(:title_tweet_text).filled(:string)
     required(:gis_icon_adopted).filled(:string)
     required(:gis_icon_in_need).filled(:string)
+    required(:imperative).filled(:string)
+    required(:past_tense_verb).filled(:string)
+    required(:gerund).filled(:string)
+    required(:details_partial_name).filled(:string)
   end
 end
 

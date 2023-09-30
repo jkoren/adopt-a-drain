@@ -1,9 +1,9 @@
 name: Adopt-a-Drain
 brand_name: Adopt-a-Drain
-button_adopt: Adopt! #button.adopt
-update_report: "%{title} import (%{deleted_adopted_count} adopted %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} unadopted %{things} removed)" #subjects.update_report
-default_tagline: What does it mean to adopt a drain? #default.tagline
-notices_adopted: You just adopted a drain #notices.adopted 
+button_adopt: Adopt!
+update_report: "%{title} import (%{deleted_adopted_count} adopted %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} unadopted %{things} removed)" #needs to be in quotes, can't have % as first character in value
+default_tagline: What does it mean to adopt a drain?
+notices_adopted: You just adopted a drain
 title_adopt: Adopt this drain
 title_adopted:  This drain has been adopted
 title_adopted_tagline: "{count} drains adopted in %{city}"

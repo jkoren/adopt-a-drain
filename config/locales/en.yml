@@ -3,7 +3,6 @@
 en:
   buttons:
     abandon: "Abandon this %{thing}"
-    adopt: "Adopt!"  #needs-branding
     back: "Back"
     change_password: "Change my password"
     close: "Close"
@@ -17,7 +16,7 @@ en:
     sign_up_or_in: "Register / Sign in"
     update: "Update"
   subjects:
-    update_report: "%{title} import (%{deleted_adopted_count} adopted %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} unadopted %{things} removed)"  #needs-branding
+    update_report: "%{title} import (%{deleted_adopted_count} %{adopted} %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} un%{adopted} %{things} removed)"
   captions:
     optional: "(optional)"
     private: "(private)"
@@ -73,7 +72,7 @@ en:
     special: "This %{thing} is special! Learn why."
   notices:
     abandoned: "%{thing} abandoned!"
-    adopted: "You just adopted a %{thing}!"  #needs-branding
+    adopted: "You just adopted a %{thing}!"
     alpha: >
       We're just getting started! We'd love to get your <a
       href='%{feedback_url}'>feedback</a> or your help with the <a
