@@ -1,11 +1,11 @@
 // require constants
 
 var constants = window.constants
-var cityConfig = window.cityConfig
+var config = window.config
 
 $(function() {
   var initialLocation;
-  var center = new google.maps.LatLng(cityConfig.mapCenterLat, cityConfig.mapCenterLng);
+  var center = new google.maps.LatLng(config.city.center.lat, config.city.center.lng);
   var browserSupportFlag =  new Boolean();
   var errorClass = 'has-error';
   var current_user_id = $('#current_user_id').val() ? $('#current_user_id').val() : '';
@@ -168,7 +168,7 @@ $(function() {
 
   var icons = {
       available: {
-        name: 'In Need of Adoption',
+        name: config.brand.gis_icon_in_need,
         title:  'Sewer',
         icon: constants.toSewerMarkerImage
       },
@@ -183,13 +183,13 @@ $(function() {
         icon: constants.priorityMarkerImage
       }, %>
       adopted: {
-        name: 'Adopted',
-        title: 'Adopted by other',
+        name: config.brand.gis_icon_adopted,
+        title: `${config.brand.gis_icon_adopted} by other`,
         icon: constants.adoptedMarkerImage
       },
       adopted_by_you: {
-        name: 'Adopted by you',
-        title: 'Adopted by you',
+        name: `${config.brand.gis_icon_adopted} by you`,
+        title: `${config.brand.gis_icon_adopted} by you`,
         icon: constants.adoptedByYouImage
       }
   };

@@ -13,13 +13,13 @@
         -# Corresponds to guideline div below 
         %div.hidden-xs
           %h3.text-center
-            = t("titles.adopted_tagline", :count => Thing.adopted(current_city).count, :things => t("defaults.things"), :city => c("city.name"))
+            = t("titles.adopted_tagline", :count => Thing.adopted(current_city).count, :things => t("defaults.things"), :city => c("city.name"), :action_past => c("brand.past_tense_verb"))
             .small
               Last updated
               = local_date(Time.now, '%B %e, %Y')
           %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
             %button.btn.btn-block.btn-primary#tagline
-              = t("defaults.tagline", :city => c("city.name"))
+              = t("defaults.tagline", :city => c("city.name"), :action_present => c("brand.imperative"))
         #content
           = render :partial => "layouts/flash", :locals => {:flash => flash}
           - if signed_in?
@@ -32,7 +32,7 @@
         -# Corresponds to guideline div above
         %div.hidden.visible-xs-block
           %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
-            %button.btn.btn-block.btn-primary#tagline = t("defaults.tagline",:city => c("city.name"))
+            %button.btn.btn-block.btn-primary#tagline = t("defaults.tagline", :city => c("city.name"), :action_present => c("brand.imperative"))
         #logos
           .row.sidebar-logo-row
             .col-xs-1
@@ -64,12 +64,9 @@
           %a#toggleLegend{:href=>"#"}
             Hide
   = render :partial => "sidebar/tos", layout: "layouts/modal", locals: {id: "tos", title: "Volunteer Waiver & Release Of Liability"}
-  = render :partial => "sidebar/details", layout: "layouts/modal", locals: {id: "details", title: "What Does it Mean To Adopt a Drain?"}
+  = render :partial => c("brand.details_partial_name"), layout: "layouts/modal", locals: {id: "details", title: "What Does it Mean To #{c("brand.imperative").capitalize()} a Drain?"}
 :javascript
-  this.cityConfig = { 
-    mapCenterLat: #{c('city.center.lat')}, 
-    mapCenterLng: #{c('city.center.lng')} 
-  }
+  this.config = #{current_config.to_json.html_safe}
   $(function() {
     $('.navbar-toggle').on('click', function(){
       $('div.sidebar').toggleClass('sidebar-full');

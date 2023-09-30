@@ -13,9 +13,9 @@ thank_you: Thank you for claiming this %{thing}!
 title_email_text: I just adopted one of %{city}'s storm drains and pledged to help keep it clear of leaves and debris. You, too, can Adopt A Drain and help the City avoid flooding at %{root_url}."
 title_tweet_text: Flooded streets aren't fun. I adopted my own %{city} storm drain at %{root_url}. Adopt and name yours.
 title_description: You can adopt one of %{city}'s storm drains and pledge to help keep it clear of leaves and debris this rainy season. Lend a hand and help the City avoid flooding.
-gis_icon_1: Unadopted
-gis_icon_2: Adopted
-gis_icon_3: In need of adoption
+gis_icon_adopted: Adopted
+gis_icon_in_need: In Need of Adoption
 imperative: adopt
 past_tense_verb: adopted
 gerund: adopting
+details_partial_name: sidebar/details_adopt_a_drain
