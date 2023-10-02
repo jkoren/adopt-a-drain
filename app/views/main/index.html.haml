@@ -19,7 +19,7 @@
               = local_date(Time.now, '%B %e, %Y')
           %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
             %button.btn.btn-block.btn-primary#tagline
-              = t("defaults.tagline", :city => c("city.name"), :action_present => c("brand.imperative"))
+              = t("defaults.tagline", :default_tagline => c("brand.default_tagline"))
         #content
           = render :partial => "layouts/flash", :locals => {:flash => flash}
           - if signed_in?

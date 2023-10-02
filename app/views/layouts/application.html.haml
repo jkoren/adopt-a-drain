@@ -2,12 +2,7 @@
 %html
   %head
     %title
-      -# = "Adopt/Claim a Drain #{c("city.name")} placeholder"
-      = "placeholder #{c("brand.name")} #{c("city.name")}"
-
-      -# how to get c("brand.name") to work?
-      -# how does c() work?
-
+      = "#{c("brand.name")} #{c("city.name")}"
     = csrf_meta_tag
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
     %meta{:name => "twitter:card", :content => "summary"}

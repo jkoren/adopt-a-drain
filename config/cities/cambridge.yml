@@ -18,7 +18,7 @@ site:
   brand: storm-stewards
   domains: [cambridge.localhost, cambridge.mysticdrains.org]
   main_url: https://cambridge.mysticdrains.org/
-  logo: logos/adopt-a-drain-cambridge.png
+  logo: logos/storm-steward-cambridge.png
 data:
   file: CambridgeSew_Catchbasin_filtered.csv
   columns:

@@ -32,7 +32,7 @@ en:
     thing: "drain"
     things: "drains"
     this_thing: "This %{thing}"
-    tagline: "What does it mean to %{action_present} a %{city} drain ?"
+    tagline: "%{default_tagline}"
     tos: "By signing up, you agree to the %{tos}."
     voice_number: "415-555-1212"
     zip: "94015-2013"
@@ -87,7 +87,7 @@ en:
     signed_up: "Thanks for signing up!"
     stolen: "%{thing} stolen!"
   titles:
-    adopt: "Adopt this %{thing}"  #needs-branding
+    adopt: "%{titles_adopt}"
     adopted: "%{thing_name} has been adopted"  #needs-branding
     adopted_tagline: "%{count} %{things} %{action_past} in %{city}"
     byline: "by %{name}"

@@ -4,10 +4,10 @@ button_adopt: Claim!
 update_report: "%{title} import (%{deleted_adopted_count} claimed %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} unclaimed %{things} removed)" #needs to be in quotes, can't have % as first character in value
 default_tagline: What does it mean to be a Storm Steward? 
 notices_adopted: You just claimed a drain 
-title_adopt: Claim this drain
-title_adopted:  This drain has been claimed
-title_adopted_tagline: "{count} drains claimed in %{city}"
-title_main: Storm Stewards %{city}
+titles_adopt: Claim this drain
+titles_adopted:  This drain has been claimed
+titles_adopted_tagline: "{count} drains claimed in %{city}"
+titles_main: Storm Stewards %{city}
 sign_in: Sign in to be a Storm Steward
 thank_you: Thank you for claiming this %{thing}!
 title_email_text: I just claimed one of %{city}'s storm drains and pledged to help keep it clear of leaves and debris. You, too, can be a Storm Steward and help the City avoid flooding at %{root_url}."
