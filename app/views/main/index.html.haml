@@ -3,7 +3,7 @@
     .sidebar
       .navbar.navbar-default
         %a{href: root_url}
-          = image_tag c("site.logo"), :alt => t("titles.main", :thing => t("defaults.thing").titleize, :city => c("city.name")), :title => t("titles.main", :thing => t("defaults.thing").titleize, :city => c("city.name"))
+          = image_tag c("site.logo"), :alt => t("titles.main", :brand_name => c('brand.brand_name').titleize, :city => c("city.name")), :title => t("titles.main", :brand_name => c('brand.brand_name').titleize, :city => c("city.name"))
         %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
           %span.sr-only Toggle navigation
           %span.icon-bar

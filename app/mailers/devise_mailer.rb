@@ -5,7 +5,7 @@ class DeviseMailer < Devise::Mailer
     mail = super
     mail.subject = t('devise.mailer.reset_password_instructions.subject',
                      title: t('titles.main',
-                              thing: t('defaults.thing'), city: 'Mystic River'))
+                              brand_name: c('brand.brand_name'), city: 'Mystic River'))
     mail
   end
 end

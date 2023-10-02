@@ -88,11 +88,11 @@ en:
     stolen: "%{thing} stolen!"
   titles:
     adopt: "%{titles_adopt}"
-    adopted: "%{thing_name} has been adopted"  #needs-branding
+    adopted: "%{thing_name} has been %{past_tense_verb}"
     adopted_tagline: "%{count} %{things} %{action_past} in %{city}"
     byline: "by %{name}"
     edit_profile: "Edit your Profile"
-    main: "Adopt-a-%{thing} %{city}"  #needs-branding
+    main: "%{brand_name} %{city}"  #needs-branding
     ofline: "of %{organization}"
     priority_html: "<strong>%{thing_title} in Need</strong> - this %{thing} tends to get dirtier than its siblings and needs more TLC"
     sign_in: "Sign in to adopt this %{thing}"  #needs-branding

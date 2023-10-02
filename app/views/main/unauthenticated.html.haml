@@ -2,7 +2,7 @@
   .table-row
     .table-cell.sidebar
       %h1
-        = image_tag "logos/adopt-a-drain.png", :alt => t("titles.main", :thing => t("defaults.thing").titleize, :city => c("city.name")), :title => t("titles.main", :thing => t("defaults.thing").titleize, :city => c("city.name"))
+        = image_tag "logos/adopt-a-drain.png", :alt => t("titles.main", :brand_name: => c('brand.brand_name').titleize, :city => c("city.name")), :title => t("titles.main", :brand_name: => c('brand.brand_name').titleize, :city => c("city.name"))
       %button.btn.btn-block.btn-primary#tagline
          = t("defaults.tagline", :default_tagline => c("brand.default_tagline"))
       #content
@@ -13,7 +13,7 @@
         %a{:href => "http://bostonbuilt.org/"}
           = image_tag "logos/boston.png", :alt => t("city.title"), :title => t("city.title")
       #feedback
-        %a{:href => URI.escape("mailto:adoptadrain@cityofboston.gov?subject=#{t("titles.main", :thing => t("defaults.thing").titleize, :city => c("city.name"))} #{t("links.feedback").titleize}")}
+        %a{:href => URI.escape("mailto:adoptadrain@cityofboston.gov?subject=#{t("titles.main", :brand_name: => c('brand.brand_name'), :city => c("city.name"))} #{t("links.feedback").titleize}")}
           = t("links.feedback")
     .table-cell#map
       &nbsp;
