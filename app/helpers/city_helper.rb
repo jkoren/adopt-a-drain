@@ -187,6 +187,7 @@ class BrandSchema
     required(:thank_you).filled(:string)
     required(:title_email_text).filled(:string)
     required(:title_tweet_text).filled(:string)
+    required(:site_description).filled(:string)
     required(:gis_icon_adopted).filled(:string)
     required(:gis_icon_in_need).filled(:string)
     required(:imperative).filled(:string)

@@ -8,9 +8,9 @@
     %meta{:name => "twitter:card", :content => "summary"}
     %meta{:name => "twitter:site", :content => "@MysticMyRWA"}
     %meta{:name => "twitter:title", :content => t("titles.main", :brand_name => c('brand.brand_name').titleize, :city => c("city.name"))}
-    %meta{:name => "twitter:description", :content => t("site.description", :city => c("city.name"))}
+    %meta{:name => "twitter:description", :content => t(:city => c("city.name"))}
     %meta{:name => "twitter:image", :content => image_url(c("site.logo"))}
-    %meta{:property => "og:description", :content => t("site.description", :city => c("city.name"))}
+    %meta{:property => "og:description", :content => t(:city => c("city.name"))}
     %meta{:property => "og:type", :content => "article"}
     %meta{:property => "og:url", :content => root_url}
     %meta{:property => "og:title", :content => t("titles.main", :brand_name => c('brand.brand_name').titleize, :city => c("city.name"))}
