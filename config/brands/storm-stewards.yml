@@ -9,10 +9,10 @@ titles_adopted:  This drain has been claimed
 titles_adopted_tagline: "{count} drains claimed in %{city}"
 titles_main: Storm Stewards %{city}
 sign_in: Sign in to be a Storm Steward
-thank_you: Thank you for claiming this %{thing}!
+thank_you: Thank you for being a Storm Steward for this drain!
 title_email_text: I just claimed one of %{city}'s storm drains and pledged to help keep it clear of leaves and debris. You, too, can be a Storm Steward and help the City avoid flooding at %{root_url}."
 title_tweet_text: Flooded streets aren't fun. I claimed my own %{city} storm drain at %{root_url}. Claim and name yours.
-title_description: You can claim one of %{city}'s storm drains and pledge to help keep it clear of leaves and debris this rainy season. Lend a hand and help the City avoid flooding.
+site_description: You can claim one of %{city}'s storm drains and pledge to help keep it clear of leaves and debris this rainy season. Lend a hand and help the City avoid flooding.
 gis_icon_adopted: Claimed
 gis_icon_in_need: In Need of Care
 imperative: claim
