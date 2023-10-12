@@ -16,6 +16,6 @@ site_description: You can adopt one of %{city}'s storm drains and pledge to help
 gis_icon_adopted: Adopted
 gis_icon_in_need: In Need of Adoption
 imperative: adopt
-past_tense_verb: adopted
-gerund: adopting
+adopted: adopted
+adopting: adopting
 details_partial_name: sidebar/details_adopt_a_drain

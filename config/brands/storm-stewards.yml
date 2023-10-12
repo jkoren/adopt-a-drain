@@ -16,6 +16,6 @@ site_description: You can claim one of %{city}'s storm drains and pledge to help
 gis_icon_adopted: Claimed
 gis_icon_in_need: In Need of Care
 imperative: claim
-past_tense_verb: claimed
-gerund: claiming
+adopted: claimed
+adopting: claiming
 details_partial_name: sidebar/details_storm_stewards

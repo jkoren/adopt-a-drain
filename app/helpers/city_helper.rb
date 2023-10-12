@@ -191,8 +191,8 @@ class BrandSchema
     required(:gis_icon_adopted).filled(:string)
     required(:gis_icon_in_need).filled(:string)
     required(:imperative).filled(:string)
-    required(:past_tense_verb).filled(:string)
-    required(:gerund).filled(:string)
+    required(:adopted).filled(:string)
+    required(:adopting).filled(:string)
     required(:details_partial_name).filled(:string)
   end
 end

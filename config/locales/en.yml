@@ -88,7 +88,7 @@ en:
     stolen: "%{thing} stolen!"
   titles:
     adopt: "%{titles_adopt}"
-    adopted: "%{thing_name} has been %{past_tense_verb}"
+    adopted: "%{thing_name} has been %{adopted}"
     adopted_tagline: "%{count} %{things} %{action_past} in %{city}"
     byline: "by %{name}"
     edit_profile: "Edit your Profile"
