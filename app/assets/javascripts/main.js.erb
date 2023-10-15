@@ -233,7 +233,6 @@ $(function() {
       shadow: markerImages['shadow'],
     });
     google.maps.event.addListener(marker, 'click', function() {
-      console.log(marker);
       if(activeInfoWindow) {
         activeInfoWindow.close();
       }
@@ -504,7 +503,6 @@ $(function() {
         $('#user_last_name').parent().removeClass(errorClass);
       }
       $('#user_password_confirmation').parent().removeClass(errorClass);
-      console.log('presubmit', errors)
       if(errors.length > 0) {
         $(submitButton).attr("disabled", false);
         errors[0].focus();
@@ -528,7 +526,6 @@ $(function() {
           },
           error: function(jqXHR) {
             var data = $.parseJSON(jqXHR.responseText);
-            console.log('error', data)
             $(submitButton).attr("disabled", false);
             if(data.errors.email) {
               errors.push($('#user_email'));
