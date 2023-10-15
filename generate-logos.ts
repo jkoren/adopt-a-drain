@@ -1,5 +1,5 @@
-import fs from "fs/promises";
-import sharp from "sharp";
+import fs from "fs/promises"
+import sharp from "sharp"
 
 const cities: City[] = [
   {
@@ -13,6 +13,7 @@ const cities: City[] = [
   {
     name: "cambridge",
     title: "Cambridge",
+    brand: "Storm Stewards",
   },
   {
     name: "chelsea",
@@ -59,7 +60,7 @@ const cities: City[] = [
     title: "Medford",
   },
 ]
-type City = { name: string; title: string }
+type City = { name: string; title: string; brand?: string }
 
 const logoPaths = {
   city: (name: string) => `app/assets/images/logos/${name}-city.png`,
@@ -108,7 +109,7 @@ export async function generateLogos() {
 
   async function generateLogo(city: City) {
     const cityLogo = await resizeLogo(logoPaths.city(city.name))
-    const baseLogo = baseWithTitle(city.title)
+    const baseLogo = baseWithContent(city)
     await sharp(baseLogo)
       .resize(geometry.width, geometry.height)
       .composite([
@@ -127,8 +128,12 @@ export async function generateLogos() {
       .toFile(logoPaths.site(city.name))
   }
 
-  function baseWithTitle(city: string) {
-    return Buffer.from(base.toString().replace("PLACEHOLDER", city))
+  function baseWithContent({ title, brand = "Adopt-a-Drain" }: City) {
+    const content = base
+      .toString()
+      .replace("CITY_NAME_PLACEHOLDER", title)
+      .replace("BRAND_NAME_PLACEHOLDER", brand)
+    return Buffer.from(content)
   }
 }
 
