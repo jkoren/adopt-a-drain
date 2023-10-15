@@ -51,7 +51,7 @@
       = t("defaults.tos", :tos => link_to(t("titles.tos"), "#tos", :id => "tos_link", :"data-toggle" => "modal", :"data-target" => "#tos")).html_safe
     .form-actions
       = f.submit t("buttons.sign_up"), :class => "btn btn-primary btn-block"
-  %fieldset#user_sign_in_fields{:style => "display: none;"}
+  %fieldset#user_sign_in_fields{:style => "display: none;", :disabled => true}
     .form-group
       %label.control-label{:for => "user_password", :id => "user_password_label"}
         = t("labels.password")
@@ -65,7 +65,7 @@
       = link_to t("links.forgot_password"), "#", :id => "user_forgot_password_link"
     .form-actions
       = f.submit t("buttons.sign_in"), :class => "btn btn-primary btn-block"
-  %fieldset#user_forgot_password_fields{:style => "display: none;"}
+  %fieldset#user_forgot_password_fields{:style => "display: none;", :disabled => true}
     %p
       = link_to t("links.remembered_password"), "#", :id => "user_remembered_password_link"
     .form-actions
