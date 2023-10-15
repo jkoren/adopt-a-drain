@@ -20,9 +20,9 @@ class AdoptionsMailer < ApplicationMailer
     attach_files adoptions: true, signups: true
 
     mail(
-      from: "Adopt a Drain #{config.city.name} <noreply@mysticdrains.org>",
+      from: "#{config.brand.name} #{config.city.name} <noreply@mysticdrains.org>",
       to: @city.export_recipient_emails,
-      subject: "Usage Report for Adopt a Drain #{config.city.name}",
+      subject: "Usage Report for #{config.brand.name} #{config.city.name}",
       reply_to: config.org.email,
     )
 
@@ -35,6 +35,7 @@ class AdoptionsMailer < ApplicationMailer
   def system_usage_report
     city = City.where(name: 'system').first!
     recipients = city.export_recipient_emails
+    config = CityHelper.config(@current_city)
     @users = User.all
     @adopted_drains = Thing.where.not(user_id: nil)
 
@@ -42,9 +43,9 @@ class AdoptionsMailer < ApplicationMailer
     attach_files adoptions: true, signups: true
 
     mail(
-      from: 'Adopt a Drain Mystic River <noreply@mysticdrains.org>',
+      from: "#{config.brand.name} Mystic River <noreply@mysticdrains.org>",
       to: recipients,
-      subject: 'System Usage Report for Adopt a Drain Mystic River',
+      subject: "System Usage Report for #{config.brand.name} Mystic River",
     )
 
     city.update(last_export_time: @export_time)

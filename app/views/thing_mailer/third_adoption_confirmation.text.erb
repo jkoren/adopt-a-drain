@@ -1,14 +1,14 @@
 Hey <%= @user.name.split.first %>!
 
-You're clearly awesome since you've adopted 3 drains now! Wow!
+You're clearly awesome since you've <%= c("brand.adopted") %> 3 drains now! Wow!
 
-We won't write you any more emails confirming your drain adoptions since it's rude to clog email inboxes.
+We won't write you any more emails confirming your drains since it's rude to clog email inboxes.
 
 Extra excited? Send a tweet to help us spread the word:
 
-  Did you know you could "adopt" part of <%= c("city.name") %>?
+  Did you know you could "<%= c("brand.imperative") %>" part of <%= c("city.name") %>?
   <%= c("site.main_url") %> makes it happen. #civicduty
 
 As always, write us with suggestions, comments, photos, or complaints! We love to hear from you.
 
-Adopt-A-Drain <%= c("city.name") %>
+<%= c("brand.name") %> <%= c("city.name") %>
