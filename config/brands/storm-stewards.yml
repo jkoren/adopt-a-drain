@@ -1,1 +1,15 @@
 name: Storm Stewards
+brand_name: Storm Stewards
+button_adopt: Claim!
+default_tagline: What does it mean to be a Storm Steward? 
+notices_adopted: You just claimed a drain 
+titles_adopt: Claim this drain
+titles_adopted:  This drain has been claimed
+sign_in: Sign in to be a Storm Steward
+thank_you: Thank you for being a Storm Steward for this drain!
+gis_icon_adopted: Claimed
+gis_icon_in_need: In Need of Care
+imperative: claim
+adopted: claimed
+adopting: claiming
+details_partial_name: sidebar/details_storm_stewards

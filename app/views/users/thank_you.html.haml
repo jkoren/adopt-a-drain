@@ -1,9 +1,9 @@
 %h2
-  = t("titles.thank_you", thing: t("defaults.thing"))
-  %a{ target: '_blank', href: "mailto:?subject=#{URI.encode(t("titles.main", :thing => t("defaults.thing").titleize, :city => c("city.name")))}&body=#{URI.encode(t("titles.email_text", root_url: root_url, thing: t("defaults.thing"), city: c("city.name")))}" }
+  = t("titles.thank_you", thank_you: c("brand.thank_you"))
+  %a{ target: '_blank', href: "mailto:?subject=#{URI.encode(t("titles.main", :brand_name => c('brand.brand_name').titleize, :city => c("city.name")))}&body=#{URI.encode(t("titles.email_text", root_url: root_url, adopted: c("brand.adopted"), brand_name: c("brand.name"), city: c("city.name")))}" }
     %i.fa.fa-envelope-square.fa-2x
   %a{ target: '_blank', href: "https://www.facebook.com/sharer/sharer.php?u=#{root_url}" }
     %i.fa.fa-facebook-square.fa-2x
-  %a{ target: '_blank', href: "https://twitter.com/intent/tweet?text=#{URI.encode(t("titles.tweet_text", root_url: root_url, thing: t("defaults.thing"), city: c("city.name")))}"}
+  %a{ target: '_blank', href: "https://twitter.com/intent/tweet?text=#{URI.encode(t("titles.tweet_text", root_url: root_url, adopted: c("brand.adopted"), city: c("city.name")))}"}
     %i.fa.fa-twitter-square.fa-2x
 = render :partial => 'things/abandon'

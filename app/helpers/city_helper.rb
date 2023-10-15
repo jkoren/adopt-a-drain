@@ -25,6 +25,10 @@ module CityHelper
     true
   end
 
+  def current_config
+    CityHelper.config(current_city)
+  end
+
   def set_current_city(city)
     @current_city = CityHelper.check(city)
   end
@@ -170,6 +174,20 @@ class BrandSchema
 
   @@schema = Dry::Schema.Params do
     required(:name).filled(:string)
+    required(:brand_name).filled(:string)
+    required(:button_adopt).filled(:string)
+    required(:default_tagline).filled(:string)
+    required(:notices_adopted).filled(:string)
+    required(:titles_adopt).filled(:string)
+    required(:titles_adopted).filled(:string)
+    required(:sign_in).filled(:string)
+    required(:thank_you).filled(:string)
+    required(:gis_icon_adopted).filled(:string)
+    required(:gis_icon_in_need).filled(:string)
+    required(:imperative).filled(:string)
+    required(:adopted).filled(:string)
+    required(:adopting).filled(:string)
+    required(:details_partial_name).filled(:string)
   end
 end
 

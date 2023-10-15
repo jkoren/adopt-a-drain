@@ -3,7 +3,17 @@
 class ThingMailer < ApplicationMailer
   def from_city
     config = CityHelper.config(@current_city)
-    "Adopt a Drain #{config.city.name} <noreply@mysticdrains.org>"
+    "#{config.brand.name} #{config.city.name} <noreply@mysticdrains.org>"
+  end
+
+  def adopted
+    config = CityHelper.config(@current_city)
+    config.brand.adopted
+  end
+
+  def adopting
+    config = CityHelper.config(@current_city)
+    config.brand.adopting
   end
 
   def first_adoption_confirmation(thing)
@@ -11,7 +21,7 @@ class ThingMailer < ApplicationMailer
     @user = thing.user
     @current_city = thing.city_domain
 
-    mail(from: from_city, to: @user.email, subject: ["Thanks for adopting a drain, #{@user.name.split.first}!"])
+    mail(from: from_city, to: @user.email, subject: ["Thanks for #{adopting} a drain, #{@user.name.split.first}!"])
   end
 
   def second_adoption_confirmation(thing)
@@ -19,7 +29,7 @@ class ThingMailer < ApplicationMailer
     @user = thing.user
     @current_city = thing.city_domain
 
-    mail(from: from_city, to: @user.email, subject: ["Thanks for adopting another drain, #{@user.name.split.first}!"])
+    mail(from: from_city, to: @user.email, subject: ["Thanks for #{adopting} another drain, #{@user.name.split.first}!"])
   end
 
   def third_adoption_confirmation(thing)
@@ -35,7 +45,7 @@ class ThingMailer < ApplicationMailer
     @user = thing.user
     @current_city = thing.city_domain
 
-    mail(from: from_city, to: @user.email, subject: ['Remember to clear your adopted drain'])
+    mail(from: from_city, to: @user.email, subject: ["Remember to clear your #{adopted} drain"])
   end
 
   # rubocop:disable Metrics/AbcSize
@@ -48,7 +58,8 @@ class ThingMailer < ApplicationMailer
                 deleted_adopted_count: deleted_things_with_adoptee.count,
                 created_count: created_things.count,
                 deleted_unadopted_count: deleted_things_no_adoptee.count,
-                things: t('defaults.things'))
+                things: t('defaults.things')
+              ) 
     mail(to: User.where(admin: true).pluck(:email), subject: subject)
   end
   # rubocop:enable Metrics/AbcSize

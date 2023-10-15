@@ -3,7 +3,6 @@
 en:
   buttons:
     abandon: "Abandon this %{thing}"
-    adopt: "Adopt!"
     back: "Back"
     change_password: "Change my password"
     close: "Close"
@@ -17,7 +16,7 @@ en:
     sign_up_or_in: "Register / Sign in"
     update: "Update"
   subjects:
-    update_report: "%{title} import (%{deleted_adopted_count} adopted %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} unadopted %{things} removed)"
+    update_report: "%{title} import (%{deleted_adopted_count} claimed %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} unclaimed %{things} removed)"
   captions:
     optional: "(optional)"
     private: "(private)"
@@ -33,7 +32,7 @@ en:
     thing: "drain"
     things: "drains"
     this_thing: "This %{thing}"
-    tagline: "What does it mean to adopt a drain?"
+    tagline: "%{default_tagline}"
     tos: "By signing up, you agree to the %{tos}."
     voice_number: "415-555-1212"
     zip: "94015-2013"
@@ -88,21 +87,21 @@ en:
     signed_up: "Thanks for signing up!"
     stolen: "%{thing} stolen!"
   titles:
-    adopt: "Adopt this %{thing}"
-    adopted: "%{thing_name} has been adopted"
-    adopted_tagline: "%{count} %{things} adopted in %{city}"
+    adopt: "%{titles_adopt}"
+    adopted: "%{thing_name} has been %{adopted}"
+    adopted_tagline: "%{count} %{things} %{action_past} in %{city}"
     byline: "by %{name}"
     edit_profile: "Edit your Profile"
-    main: "Adopt-a-%{thing} %{city}"
+    main: "%{brand_name} %{city}"
     ofline: "of %{organization}"
     priority_html: "<strong>%{thing_title} in Need</strong> - this %{thing} tends to get dirtier than its siblings and needs more TLC"
-    sign_in: "Sign in to adopt this %{thing}"
-    thank_you: "Thank you for adopting this %{thing}!"
-    email_text: "I just adopted one of %{city}'s storm drains and pledged to help keep it clear of leaves and debris. You, too, can Adopt a Drain and help the City avoid flooding at %{root_url}."
-    tweet_text: "Flooded streets aren't fun. I adopted my own %{city} storm drain at %{root_url}. Claim and name yours."
+    sign_in: "%{sign_in}"
+    thank_you: "%{thank_you}"
+    email_text: "I just %{adopted} one of %{city}'s storm drains and pledged to help keep it clear of leaves and debris. You, too, can join the %{brand_name} program and help %{city} avoid flooding at %{root_url}."
+    tweet_text: "Flooded streets aren't fun. I %{adopted} my own %{city} storm drain at %{root_url}. Claim and name yours."
     tos: "Volunteer Waiver"
   site:
-    description: "You can adopt one of %{city}'s storm drains and pledge to help keep it clear of leaves and debris this rainy season. Lend a hand and help the City avoid flooding."
+    description: "%{site_description}"
   sponsors:
     built: "Code for San Francisco"
     cfa: "Code for America"

@@ -1,11 +1,11 @@
 // require constants
 
 var constants = window.constants
-var cityConfig = window.cityConfig
+var config = window.config
 
 $(function() {
   var initialLocation;
-  var center = new google.maps.LatLng(cityConfig.mapCenterLat, cityConfig.mapCenterLng);
+  var center = new google.maps.LatLng(config.city.center.lat, config.city.center.lng);
   var browserSupportFlag =  new Boolean();
   var errorClass = 'has-error';
   var current_user_id = $('#current_user_id').val() ? $('#current_user_id').val() : '';
@@ -168,7 +168,7 @@ $(function() {
 
   var icons = {
       available: {
-        name: 'In Need of Adoption',
+        name: config.brand.gis_icon_in_need,
         title:  'Sewer',
         icon: constants.toSewerMarkerImage
       },
@@ -183,13 +183,13 @@ $(function() {
         icon: constants.priorityMarkerImage
       }, %>
       adopted: {
-        name: 'Adopted',
-        title: 'Adopted by other',
+        name: config.brand.gis_icon_adopted,
+        title: `${config.brand.gis_icon_adopted} by other`,
         icon: constants.adoptedMarkerImage
       },
       adopted_by_you: {
-        name: 'Adopted by you',
-        title: 'Adopted by you',
+        name: `${config.brand.gis_icon_adopted} by you`,
+        title: `${config.brand.gis_icon_adopted} by you`,
         icon: constants.adoptedByYouImage
       }
   };
@@ -233,7 +233,6 @@ $(function() {
       shadow: markerImages['shadow'],
     });
     google.maps.event.addListener(marker, 'click', function() {
-      console.log(marker);
       if(activeInfoWindow) {
         activeInfoWindow.close();
       }
@@ -458,24 +457,24 @@ $(function() {
     if('new' === radioInput.val()) {
       $('#combo-form').data('state', 'user_sign_up');
       $('#user_forgot_password_fields').slideUp();
-      $('#user_sign_in_fields').slideUp();
-      $('#user_sign_up_fields').slideDown(function() {
+      $('#user_sign_in_fields').prop("disabled", true).slideUp();
+      $('#user_sign_up_fields').prop("disabled", false).slideDown(function() {
         setComboFormFocus();
       });
     } else if('existing' === radioInput.val()) {
-      $('#user_sign_up_fields').slideUp();
-      $('#user_sign_in_fields').slideDown(function() {
+      $('#user_sign_up_fields').prop("disabled", true).slideUp();
+      $('#user_sign_in_fields').prop("disabled", false).slideDown(function() {
         $('#combo-form').data('state', 'user_sign_in');
         setComboFormFocus();
         $('#user_forgot_password_link').click(function() {
           $('#combo-form').data('state', 'user_forgot_password');
-          $('#user_sign_in_fields').slideUp();
-          $('#user_forgot_password_fields').slideDown(function() {
+          $('#user_sign_in_fields').prop("disabled", true).slideUp();
+          $('#user_forgot_password_fields').prop("disabled", false).slideDown(function() {
             setComboFormFocus();
             $('#user_remembered_password_link').click(function() {
               $('#combo-form').data('state', 'user_sign_in');
-              $('#user_forgot_password_fields').slideUp();
-              $('#user_sign_in_fields').slideDown(function() {
+              $('#user_forgot_password_fields').prop("disabled", true).slideUp();
+              $('#user_sign_in_fields').prop("disabled", false).slideDown(function() {
                 setComboFormFocus();
               });
             });
@@ -536,32 +535,32 @@ $(function() {
             if(data.errors.first_name) {
               errors.push($('#user_first_name'));
               $('#user_first_name').parent().addClass(errorClass);
-              $('#user_first_name + .help-block').text(data.errors.first_name[0]);
+              <%# $('#user_first_name + .help-block').text(data.errors.first_name[0]); %>
             }
             if(data.errors.last_name) {
               errors.push($('#user_last_name'));
               $('#user_last_name').parent().addClass(errorClass);
-              $('#user_last_name + .help-block').text(data.errors.last_name[0]);
+              <%# $('#user_last_name + .help-block').text(data.errors.last_name[0]); %>
             }
             if(data.errors.organization) {
               errors.push($('#user_organization'));
               $('#user_organization').parent().addClass(errorClass);
-              $('#user_organization + .help-block').text(data.errors.organization[0]);
+              <%# $('#user_organization + .help-block').text(data.errors.organization[0]); %>
             }
             if(data.errors.voice_number) {
               errors.push($('#user_voice_number'));
               $('#user_voice_number').parent().addClass(errorClass);
-              $('#user_voice_number + .help-block').text(data.errors.voice_number[0]);
+              <%# $('#user_voice_number + .help-block').text(data.errors.voice_number[0]); %>
             }
             if(data.errors.sms_number) {
               errors.push($('#user_sms_number'));
               $('#user_sms_number').parent().addClass(errorClass);
-              $('#user_sms_number + .help-block').text(data.errors.sms_number[0]);
+              <%# $('#user_sms_number + .help-block').text(data.errors.sms_number[0]); %>
             }
             if(data.errors.password) {
               errors.push($('#user_password_confirmation'));
               $('#user_password_confirmation').parent().addClass(errorClass);
-              $('#user_password_confirmation + .help-block').text(data.errors.password[0]);
+              <%# $('#user_password_confirmation + .help-block').text(data.errors.password[0]); %>
             }
             errors[0].focus();
           },

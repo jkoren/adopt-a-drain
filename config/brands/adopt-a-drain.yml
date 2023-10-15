@@ -1,1 +1,15 @@
 name: Adopt-a-Drain
+brand_name: Adopt-a-Drain
+button_adopt: Adopt!
+default_tagline: What does it mean to adopt a drain?
+notices_adopted: You just adopted a drain
+titles_adopt: Adopt this drain
+titles_adopted:  This drain has been adopted
+sign_in: Sign in to adopt a drain
+thank_you: Thank you for claiming this drain!
+gis_icon_adopted: Adopted
+gis_icon_in_need: In Need of Adoption
+imperative: adopt
+adopted: adopted
+adopting: adopting
+details_partial_name: sidebar/details_adopt_a_drain
