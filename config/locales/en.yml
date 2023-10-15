@@ -16,7 +16,7 @@ en:
     sign_up_or_in: "Register / Sign in"
     update: "Update"
   subjects:
-    update_report: "%{title} import (%{deleted_adopted_count} %{adopted} %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} un%{adopted} %{things} removed)"
+    update_report: "%{title} import (%{deleted_adopted_count} claimed %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} unclaimed %{things} removed)"
   captions:
     optional: "(optional)"
     private: "(private)"
@@ -97,8 +97,8 @@ en:
     priority_html: "<strong>%{thing_title} in Need</strong> - this %{thing} tends to get dirtier than its siblings and needs more TLC"
     sign_in: "%{sign_in}"
     thank_you: "%{thank_you}"
-    email_text: "%{email_text}"
-    tweet_text: "%{tweet_text}"
+    email_text: "I just %{adopted} one of %{city}'s storm drains and pledged to help keep it clear of leaves and debris. You, too, can join the %{brand_name} program and help %{city} avoid flooding at %{root_url}."
+    tweet_text: "Flooded streets aren't fun. I %{adopted} my own %{city} storm drain at %{root_url}. Claim and name yours."
     tos: "Volunteer Waiver"
   site:
     description: "%{site_description}"

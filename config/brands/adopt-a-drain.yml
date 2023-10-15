@@ -1,18 +1,12 @@
 name: Adopt-a-Drain
 brand_name: Adopt-a-Drain
 button_adopt: Adopt!
-update_report: "%{title} import (%{deleted_adopted_count} adopted %{things} removed, %{created_count} %{things} added, %{deleted_unadopted_count} unadopted %{things} removed)" #needs to be in quotes, can't have % as first character in value
 default_tagline: What does it mean to adopt a drain?
 notices_adopted: You just adopted a drain
 titles_adopt: Adopt this drain
 titles_adopted:  This drain has been adopted
-titles_adopted_tagline: "{count} drains adopted in %{city}"
-titles_main: Adopt-a-Drain %{city}
 sign_in: Sign in to adopt a drain
 thank_you: Thank you for claiming this drain!
-title_email_text: I just adopted one of %{city}'s storm drains and pledged to help keep it clear of leaves and debris. You, too, can Adopt A Drain and help the City avoid flooding at %{root_url}."
-title_tweet_text: Flooded streets aren't fun. I adopted my own %{city} storm drain at %{root_url}. Adopt and name yours.
-site_description: You can adopt one of %{city}'s storm drains and pledge to help keep it clear of leaves and debris this rainy season. Lend a hand and help the City avoid flooding.
 gis_icon_adopted: Adopted
 gis_icon_in_need: In Need of Adoption
 imperative: adopt
