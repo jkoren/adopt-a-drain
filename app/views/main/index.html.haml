@@ -27,7 +27,9 @@
           - elsif @reset_password_token.present?
             = render :partial => 'passwords/edit'
           - else
-            %iframe{ :width => "100%", :src => "https://www.youtube.com/embed/269AeYt_S9s", :frameborder => "0", :allowfullscreen => "allowfullscreen" }
+            - video_url = c("site.video")
+            - if video_url.present?
+              %iframe{ :width => "100%", :src => video_url, :frameborder => "0", :allowfullscreen => "allowfullscreen" }
             = render :partial => "sidebar/search"
         -# Corresponds to guideline div above
         %div.hidden.visible-xs-block

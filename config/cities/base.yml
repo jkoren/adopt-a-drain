@@ -2,6 +2,7 @@ city:
   state: Massachusetts
 site:
   brand: adopt-a-drain
+  video: https://www.youtube.com/embed/269AeYt_S9s
 org:
   email: contact@mysticriver.org
   name: Mystic River Watershed Association

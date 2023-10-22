@@ -134,6 +134,7 @@ class Schema
       required(:domains).filled(array[:string])
       required(:main_url).filled(:string)
       required(:logo).filled(:string)
+      required(:video).maybe(:string)
     end
 
     required(:org).hash do

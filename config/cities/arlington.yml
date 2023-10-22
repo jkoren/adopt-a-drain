@@ -18,6 +18,7 @@ site:
   domains: [arlington.localhost, arlington.mysticdrains.org]
   main_url: https://arlington.mysticdrains.org/
   logo: logos/adopt-a-drain-arlington.png
+  video: null
 data:
   file: Arlington_WGS84_v2_0_filtered.csv
   columns:

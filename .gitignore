@@ -27,3 +27,5 @@ node_modules/
 dist/
 
 report-config.json
+
+public/assets
