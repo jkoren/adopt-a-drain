@@ -35,7 +35,6 @@ class AdoptionsMailer < ApplicationMailer
   def system_usage_report
     city = City.where(name: 'system').first!
     recipients = city.export_recipient_emails
-    config = CityHelper.config(@current_city)
     @users = User.all
     @adopted_drains = Thing.where.not(user_id: nil)
 
@@ -43,9 +42,9 @@ class AdoptionsMailer < ApplicationMailer
     attach_files adoptions: true, signups: true
 
     mail(
-      from: "#{config.brand.name} Mystic River <noreply@mysticdrains.org>",
+      from: "Adopt-a-Drain Mystic River <noreply@mysticdrains.org>",
       to: recipients,
-      subject: "System Usage Report for #{config.brand.name} Mystic River",
+      subject: "System Usage Report for Adopt-a-Drain Mystic River",
     )
 
     city.update(last_export_time: @export_time)
