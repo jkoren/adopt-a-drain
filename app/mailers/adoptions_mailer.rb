@@ -72,10 +72,10 @@ class AdoptionsMailer < ApplicationMailer
   def adopted_drains_csv
     CSV.generate(
       write_headers: true,
-      headers: %w[id city email_address lat lng],
+      headers: %w[id city email_address drain_name lat lng],
     ) do |csv|
       @adopted_drains.each do |t|
-        csv << [t.city_id, t.city_domain, t.user.email, t.lat, t.lng]
+        csv << [t.city_id, t.city_domain, t.user.email, t.adopted_name, t.lat, t.lng]
       end
     end
   end
