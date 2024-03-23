@@ -59,6 +59,10 @@ const cities: City[] = [
     name: "medford",
     title: "Medford",
   },
+  {
+    name: "malden",
+    title: "Malden",
+  },
 ]
 type City = { name: string; title: string; brand?: string }
 

@@ -1,0 +1,28 @@
+city:
+  name: Malden
+  type: City
+  center:
+    lat: "42.4251"
+    lng: "-71.0662"
+  title: City of Malden
+  runoff_destination: the Malden and Pines Rivers
+  trash_page_label: Malden's trash and recycling page
+  trash_page_url: https://www.cityofmalden.org/238/Trash-Recycling
+  report_issues: via <a target="_blank" href="https://seeclickfix.com/us-ma-malden">SeeClickFix</a>
+  logo: logos/malden-city.png
+  url: https://www.cityofmalden.org/
+  facebook: https://www.facebook.com/cityofmalden/
+  twitter: https://twitter.com/thecityofmalden
+  instagram: https://www.instagram.com/cityofmalden
+  # contact_email: dmorgan@town.arlington.ma.us
+site:
+  domains: [malden.localhost, malden.mysticdrains.org]
+  main_url: https://malden.mysticdrains.org/
+  logo: logos/adopt-a-drain-malden.png
+data:
+  file: malden-drains.csv
+  columns:
+    id: FacilityID
+    lat: Y
+    lng: X
+    name: [PrimaryStr]
