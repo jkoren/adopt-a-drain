@@ -65,7 +65,7 @@
         .show-hide
           %a#toggleLegend{:href=>"#"}
             Hide
-  = render :partial => "sidebar/tos", layout: "layouts/modal", locals: {id: "tos", title: "Volunteer Waiver & Release Of Liability"}
+  = render :partial => c("city.tos_partial_name"), layout: "layouts/modal", locals: {id: "tos", title: "Volunteer Waiver & Release Of Liability"}
   = render :partial => c("brand.details_partial_name"), layout: "layouts/modal", locals: {id: "details", title: "What Does it Mean To #{c("brand.imperative").capitalize()} a Drain?"}
 :javascript
   this.config = #{current_config.to_json.html_safe}

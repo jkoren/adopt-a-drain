@@ -13,6 +13,7 @@ city:
   url: https://www.woburnma.gov/
   facebook: https://www.facebook.com/mayor.galvin
   twitter: https://twitter.com/cityofwoburn?lang=en
+  contact_email: mbarrett@cityofwoburn.com
 site:
   domains: [woburn.localhost, woburn.mysticdrains.org]
   main_url: https://woburn.mysticdrains.org/

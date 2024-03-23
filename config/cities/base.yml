@@ -1,5 +1,7 @@
 city:
   state: Massachusetts
+  tos_partial_name: sidebar/tos_adopt_a_drain
+  contact_email: contact@mysticriver.org
 site:
   brand: adopt-a-drain
   video: https://www.youtube.com/embed/269AeYt_S9s

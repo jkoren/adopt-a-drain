@@ -77,7 +77,7 @@ module CityHelper
       city = Schema.load(base, config)
 
       city.brand = @@brands.fetch(city.site.brand)
-      
+
       @@cities[city_name] = city.to_dot
       city.site.domains.each do |domain|
         @@domains[domain] = city_name
@@ -127,6 +127,8 @@ class Schema
       optional(:instagram).filled(:string)
       required(:twitter).filled(:string)
       optional(:linkedin).filled(:string)
+      required(:tos_partial_name).filled(:string)
+      required(:contact_email).filled(:string)
     end
 
     required(:site).hash do

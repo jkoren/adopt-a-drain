@@ -14,6 +14,7 @@ city:
   facebook: https://www.facebook.com/arlingtonma
   twitter: https://twitter.com/arlingtonmagov
   linkedin: https://www.linkedin.com/company/town-of-arlington-ma/
+  contact_email: dmorgan@town.arlington.ma.us
 site:
   domains: [arlington.localhost, arlington.mysticdrains.org]
   main_url: https://arlington.mysticdrains.org/

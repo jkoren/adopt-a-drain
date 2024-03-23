@@ -15,6 +15,7 @@ city:
   instagram: http://instagram.com/somervillecity
   twitter: https://twitter.com/Somervillecity
   linkedin: https://www.linkedin.com/company/city-of-somerville/
+  contact_email: lhiller@somervillema.gov
 site:
   domains: [somerville.localhost, somerville.mysticdrains.org]
   main_url: https://somerville.mysticdrains.org/

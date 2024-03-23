@@ -14,6 +14,8 @@ city:
   facebook: https://facebook.com/CambridgeMA.Gov
   twitter: https://twitter.com/cambma
   linkedin: https://www.linkedin.com/company/city-of-cambridge/
+  tos_partial_name: sidebar/tos_cambridge
+  contact_email: cung@cambridgema.gov
 site:
   brand: storm-stewards
   domains: [cambridge.localhost, cambridge.mysticdrains.org]

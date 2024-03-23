@@ -13,6 +13,7 @@ city:
   url: https://www.lexingtonma.gov/
   facebook: https://www.facebook.com/townoflexingtonma/
   twitter: https://twitter.com/TownOfLexMA
+  contact_email: ogomez@lexingtonma.gov
 site:
   domains: [lexington.localhost, lexington.mysticdrains.org]
   main_url: https://lexington.mysticdrains.org/

@@ -15,6 +15,7 @@ city:
   instagram: https://www.instagram.com/watertownmagov/
   twitter: https://twitter.com/watertowngov
   linkedin: https://www.linkedin.com/in/town-of-watertown-23043a202/
+  contact_email: lschwab@watertown-ma.gov
 site:
   domains: [watertown.localhost, watertown.mysticdrains.org]
   main_url: https://watertown.mysticdrains.org/

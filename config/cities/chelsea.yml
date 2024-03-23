@@ -14,6 +14,7 @@ city:
   facebook: https://www.facebook.com/CityOfChelsea
   twitter: https://twitter.com/ChelseaGov_MA
   linkedin: https://www.linkedin.com/company/city-of-chelsea/
+  contact_email: cfox@chelseama.gov
 site:
   domains: [chelsea.localhost, chelsea.mysticdrains.org]
   main_url: https://chelsea.mysticdrains.org/
