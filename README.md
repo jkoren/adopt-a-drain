@@ -43,10 +43,10 @@ Claim responsibility for cleaning out a storm drain after it rains.
 ![Adopt-a-Drain](/adopt.png "Adopt-a-Drain")
 
 ## Demo
-You can see a running version of the application at
-[http://adopt-a-drain.herokuapp.com/][demo].
+You can see an example of a running version of the application at
+[https://somerville.mysticdrains.org/][demo].
 
-[demo]: http://adopt-a-drain.herokuapp.com/
+[demo]: https://somerville.mysticdrains.org/
 
 ## Installation
 This application requires [Postgres](http://www.postgresql.org/) to be installed
