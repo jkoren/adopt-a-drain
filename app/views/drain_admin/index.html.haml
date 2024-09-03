@@ -12,11 +12,16 @@
       .sidebar-content
         -# Corresponds to guideline div below 
         %div.hidden-xs
+          %h2.text-center
+            = "Drain Administrator Dashboard"
           %h3.text-center
             = t("titles.adopted_tagline", :count => Thing.adopted(current_city).count, :things => t("defaults.things"), :city => c("city.name"), :action_past => c("brand.adopted"))
             .small
               Last updated
               = local_date(Time.now, '%B %e, %Y')
+          %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
+            %button.btn.btn-block.btn-secondary#tagline
+              = "Sign In"
           %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
             %button.btn.btn-block.btn-primary#tagline
               = "Change drain name"
@@ -60,15 +65,15 @@
               %a{:href => "mailto:j.korenstein@gamedaymatchup.net?subject=Inquiry about technology behind Adopt-a-drain"}
                 = image_tag "logos/coronado.png", :alt => "Coronado Consulting", :title => "Coronado Consulting", :class => "datasf"
             .col-xs-1
-    -# .col-md-9.map-container
-    -#   #map
-    -#     &nbsp;
-    -#   #legend
-    -#     .title
-    -#       Legend
-    -#     .show-hide
-    -#       %a#toggleLegend{:href=>"#"}
-    -#         Hide
+    .col-md-9.map-container
+      #map
+        &nbsp;
+      #legend
+        .title
+          Legend
+        .show-hide
+          %a#toggleLegend{:href=>"#"}
+            Hide
   = render :partial => c("city.tos_partial_name"), layout: "layouts/modal", locals: {id: "tos", title: "Volunteer Waiver & Release Of Liability"}
   = render :partial => c("brand.details_partial_name"), layout: "layouts/modal", locals: {id: "details", title: "What Does it Mean To #{c("brand.imperative").capitalize()} a Drain?"}
 :javascript
