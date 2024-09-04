@@ -19,15 +19,19 @@
             .small
               Last updated
               = local_date(Time.now, '%B %e, %Y')
+
           %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
             %button.btn.btn-block.btn-secondary#tagline
               = "Sign In"
-          %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
+
+          %a.change{:href => "#change", :"data-toggle" => "modal", :"data-target" => "#change"}
             %button.btn.btn-block.btn-primary#tagline
               = "Change drain name"
+
           %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
             %button.btn.btn-block.btn-primary#tagline
               = "Release drain"
+
         -# #content
         -#   = render :partial => "layouts/flash", :locals => {:flash => flash}
         -#   - if signed_in?
@@ -76,6 +80,9 @@
             Hide
   = render :partial => c("city.tos_partial_name"), layout: "layouts/modal", locals: {id: "tos", title: "Volunteer Waiver & Release Of Liability"}
   = render :partial => c("brand.details_partial_name"), layout: "layouts/modal", locals: {id: "details", title: "What Does it Mean To #{c("brand.imperative").capitalize()} a Drain?"}
+  -# need an =render here for change
+  = render :partial => c("brand.change_partial_name"), layout: "layouts/modal", locals: {id: "change", title: "Change a Drain Name"}
+
 :javascript
   this.config = #{current_config.to_json.html_safe}
   $(function() {

@@ -13,3 +13,4 @@ imperative: adopt
 adopted: adopted
 adopting: adopting
 details_partial_name: sidebar/details_adopt_a_drain
+change_partial_name: sidebar/change_adopt_a_drain
