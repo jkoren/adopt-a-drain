@@ -21,6 +21,7 @@ How to run and maintain the site.
   ```
 - Get the Google Maps and optionally mailserver credentials from the heroku project for local development by running `heroku config`.
 - Create a `.env` file in the repo root directory with the following contents for local development:
+
   ```sh
   PORT=3000
   DB_HOST=db
@@ -70,7 +71,7 @@ To stop the app, run `docker compose down`. To start it again, run `docker compo
 
 ## Environment configuration
 
-We configure the deployment using [Heroku environment variables](https://dashboard.heroku.com/apps/adopt-a-drain-mrwa/settings). The maps API keys are all set to same API key from the Google Maps console, and the mailserver fields are set using the mailgun configuration. 
+We configure the deployment using [Heroku environment variables](https://dashboard.heroku.com/apps/adopt-a-drain-mrwa/settings). The maps API keys are all set to same API key from the Google Maps console, and the mailserver fields are set using the mailgun configuration.
 
 ```sh
 GOOGLE_MAPS_JAVASCRIPT_API_KEY=<your key>
@@ -101,15 +102,23 @@ Then, whenever migrations are added, load them:
 # Set Up a New City
 
 1. Add a configuration file under `config/cities`. The name of the file is used as the id of the city.
-2. Generate a logo using the `generate-logos` script
-3. Add drain data under `config/cities/data` and reference it in the city config.
-4. claim the domain with heroku
+2. Save a municipality logo as a .png file to /app/assets/images/logos/ folder in the format <cityName>-city.png. For example: `reading-city.png`.
+3. Generate a logo using the `generate-logos` script.
+4. Add drain data under `config/cities/data` and reference it in the city config.
+5. Add the site domain in the city config, along with other appropriate fields.
+
+At this point, you should be able to access the new city locally at `http://<newCity>.localhost:3000/` for example `http://reading.localhost:3000/`
+
+6. Restart the Server
+7. Claim the domain with heroku
+
 ```bash
 heroku domains:add mycity.mysticdrains.org
 ```
-6. Create a CNAME [DNS record in squarespace](https://support.squarespace.com/hc/en-us/articles/360002101888) pointing to the `DNS Target` target listed by `heroku domains`. 
-5. Load drain data (see below)
-6. Configure report recipients (see below)
+
+8. Create a CNAME [DNS record in squarespace](https://support.squarespace.com/hc/en-us/articles/360002101888) pointing to the `DNS Target` target listed by `heroku domains`.
+9. Load drain data (see below)
+10. Configure report recipients (see below)
 
 # Load or Update drain data
 
@@ -127,7 +136,7 @@ Or load multiple or all:
 
 **Note**: For all commands, you must add `write=true` to actually write changes to the database: `heroku run rake data:load_drains cities=everett write=true`.
 
-Review the output of a dry run before writing. 
+Review the output of a dry run before writing.
 
 The loader matches input rows to existing records by location and id. If no ID is provided in the input data, a unique, random id is created. Two rows match if they have the same ID or are within 1 foot of each other.
 
@@ -164,7 +173,7 @@ Note that the system report is configured with the `system` city name. Then, run
 
 # Send usage report
 
-Usage reports are automatically sent monthly using [Herokue Scheduler](https://devcenter.heroku.com/articles/scheduler). 
+Usage reports are automatically sent monthly using [Herokue Scheduler](https://devcenter.heroku.com/articles/scheduler).
 
 To manually send reports to some or all cities:
 

@@ -1,0 +1,29 @@
+city:
+  name: Neponset
+  type: Town
+  center:
+    lat: "42.4155068"
+    lng: "-71.1585997"
+  title: Neponset Watershed
+  runoff_destination: the Mill Brook, Alewife Brook and Mystic Rivers
+  trash_page_label: Arlington's recycling, trash, and composting page
+  trash_page_url: https://www.arlingtonma.gov/departments/public-works/recycling-trash-composting
+  report_issues: by contacting Public Works at 781-316-3301
+  logo: logos/arlington-city.png
+  url: https://www.arlingtonma.gov/
+  facebook: https://www.facebook.com/arlingtonma
+  twitter: https://twitter.com/arlingtonmagov
+  linkedin: https://www.linkedin.com/company/town-of-arlington-ma/
+  contact_email: dmorgan@town.arlington.ma.us
+site:
+  domains: [neponset.localhost, neponset.mysticdrains.org]
+  main_url: https://neponset.mysticdrains.org/
+  logo: logos/adopt-a-drain-neponset.png
+  video: null
+data:
+  file: Neponset-but-really-Arlington.csv
+  columns:
+    id: facilityid
+    lat: Latitude
+    lng: Longitude
+    name: [locdesc]
