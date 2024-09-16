@@ -65,6 +65,8 @@ docker compose exec web bundle exec rake data:load_drains cities=everett write=t
 
 Now you can access the site at http://localhost:3000. This loads the default city, everett. To access a different city, use the city name as the subdomain, e.g. http://somerville.localhost:3000. Any city with a file under `config/cities` can be accessed this way.
 
+To access a city's administrative dashboard to rename or release (AKA unadopt) drains, use the /drain_admin route, as in http://somerville.localhost:3000/drain_admin.
+
 To stop the app, run `docker compose down`. To start it again, run `docker compose up`. This will run the app in the foregound and stop it when you press `ctrl-c`. The database will be persisted between runs. To stop the app and remove the database, run `docker compose down -v`.
 
 # Deployment

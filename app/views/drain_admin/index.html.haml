@@ -26,11 +26,11 @@
 
           %a.change{:href => "#change", :"data-toggle" => "modal", :"data-target" => "#change"}
             %button.btn.btn-block.btn-primary#tagline
-              = "Change drain name"
+              = "Change a drain name"
 
-          %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
+          %a.release{:href => "#release", :"data-toggle" => "modal", :"data-target" => "#change"}
             %button.btn.btn-block.btn-primary#tagline
-              = "Release drain"
+              = "Release a Drain"
 
         -# #content
         -#   = render :partial => "layouts/flash", :locals => {:flash => flash}
@@ -80,9 +80,10 @@
             Hide
   = render :partial => c("city.tos_partial_name"), layout: "layouts/modal", locals: {id: "tos", title: "Volunteer Waiver & Release Of Liability"}
   = render :partial => c("brand.details_partial_name"), layout: "layouts/modal", locals: {id: "details", title: "What Does it Mean To #{c("brand.imperative").capitalize()} a Drain?"}
-  -# need an =render here for change
   = render :partial => c("brand.change_partial_name"), layout: "layouts/modal", locals: {id: "change", title: "Change a Drain Name"}
 
+  = render :partial => c("brand.release_partial_name"), layout: "layouts/modal", locals: {id: "change", title: "Release a Drain"}
+  
 :javascript
   this.config = #{current_config.to_json.html_safe}
   $(function() {
