@@ -1,25 +1,15 @@
-%p
-  <i>This will be a modal to "change a drain name"
 %form
   .form-group
-    %label{:for => "exampleFormControlInput1"} Email address
-    %input#exampleFormControlInput1.form-control{:placeholder => "name@example.com", :type => "email"}/
-  .form-group
-    %label{:for => "exampleFormControlSelect1"} Example select
-    %select#exampleFormControlSelect1.form-control
-      %option 1
-      %option 2
-      %option 3
-      %option 4
-      %option 5
-  .form-group
-    %label{:for => "exampleFormControlSelect2"} Example multiple select
-    %select#exampleFormControlSelect2.form-control{:multiple => "multiple"}
-      %option 1
-      %option 2
-      %option 3
-      %option 4
-      %option 5
-  .form-group
-    %label{:for => "exampleFormControlTextarea1"} Example textarea
-    %textarea#exampleFormControlTextarea1.form-control{:rows => "3"}
+    %label{:for => "exampleFormControlInput1"} Drain to rename
+    %input#exampleFormControlInput1.form-control{:placeholder => "CB-817", :type => "text"}/
+
+    .form-group
+    %label{:for => "exampleFormControlInput2"} Current Name:
+
+    .form-group
+    %label{:for => "exampleFormControlInput3"} New name
+    %input#exampleFormControlInput1.form-control{:placeholder => "", :type => "text"}/
+
+    .form-group
+    %button.btn.btn-primary{:type => "submit"} Rename
+  

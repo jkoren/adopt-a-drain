@@ -1,2 +1,11 @@
-%p
-  <i>This will be a modal to "release a drain"
+%form
+  .form-group
+    %label{:for => "exampleFormControlInput1"} Drain to release
+    %input#exampleFormControlInput1.form-control{:placeholder => "CB-817", :type => "text"}/
+
+    .form-group
+    %label{:for => "exampleFormControlInput2"} Current Name:
+
+    .form-group
+    %button.btn.btn-primary{:type => "submit"} Release
+  
