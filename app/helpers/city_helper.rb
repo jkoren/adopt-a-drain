@@ -193,6 +193,8 @@ class BrandSchema
     required(:details_partial_name).filled(:string)
     required(:change_partial_name).filled(:string)
     required(:release_partial_name).filled(:string)
+    required(:promote_partial_name).filled(:string)
+
   end
 end
 
