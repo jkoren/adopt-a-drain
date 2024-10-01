@@ -9,7 +9,11 @@
     .help-block
   %fieldset.form-actions
     = submit_tag t("buttons.find", :thing => t("defaults.things")), :class => "btn btn-primary btn-block"
-- if signed_in?  
+    %dl
+- if signed_in? 
+  %div
+    %dl
+    .break 
   %a.change{:href => "#change", :"data-toggle" => "modal", :"data-target" => "#change"}
     %button.btn.btn-block.btn-primary#tagline
       = "Rename a Drain"
@@ -21,6 +25,11 @@
   %a.promote{:href => "#promote", :"data-toggle" => "modal", :"data-target" => "#promote"}
     %button.btn.btn-block.btn-primary#tagline
       = "Promote a User to Admin"
+
+  %div
+    %dl
+    .break
+
   %a{:href => edit_user_registration_path, :id => "edit_profile_link", :class => "btn btn-warning btn-block"}
     = t("buttons.edit_profile")
   %a{:href => destroy_user_session_path, :id => "sign_out_link", :class => "btn btn-danger btn-block"}
