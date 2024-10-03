@@ -11,6 +11,7 @@
     = submit_tag t("buttons.find", :thing => t("defaults.things")), :class => "btn btn-primary btn-block"
 - if signed_in?
   = render :partial => "sidebar/nothing"
+  _adminSearch.html.haml
   %div
     %dl
     .break 
@@ -35,6 +36,6 @@
   %a{:href => destroy_user_session_path, :id => "sign_out_link", :class => "btn btn-danger btn-block"}
     = t("buttons.sign_out")
 - else
-  la la
+  -# should be adminComboForm?
   %a{:href => combo_form_path, :class => "link btn btn-secondary"}
     = t("buttons.sign_up_or_in")
