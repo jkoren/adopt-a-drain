@@ -2,6 +2,16 @@
 -# based on adopt.html.haml modal
 %h4
   Drain Administration
+  %form
+    .form-group
+    %button.btn.btn-primary Free
+
+    .form-group
+    %input#exampleFormControlInput1.form-control{:placeholder => "try to get current name here", :type => "text"}/
+
+    .form-group
+    %button.btn.btn-primary{:type => "submit"} Rename
+-#  code example
   -# = form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
   -# = f.hidden_field "id"
   -# = f.hidden_field "user_id", :value => current_user.id
