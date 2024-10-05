@@ -6,7 +6,7 @@ class InfoWindowController < ApplicationController
     view = begin
       if @thing.adopted?
 
-        # need to pull munical_admin from database
+        # need to pull @user.munical_admin from database
         municipal_admin = true
 
         if user_signed_in?
