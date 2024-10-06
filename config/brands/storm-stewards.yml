@@ -13,3 +13,6 @@ imperative: claim
 adopted: claimed
 adopting: claiming
 details_partial_name: sidebar/details_storm_stewards
+change_partial_name: sidebar/change_adopt_a_drain
+release_partial_name: sidebar/release_adopt_a_drain
+promote_partial_name: sidebar/promote_adopt_a_drain

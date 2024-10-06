@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/address', to: 'addresses#show', as: 'address'
   get '/info_window', to: 'info_window#index', as: 'info_window'
   get '/sitemap', to: 'sitemaps#index', as: 'sitemap'
+  get '/drain_admin', to: 'drain_admin#index', as: 'drain_admin'
 
   scope '/sidebar', controller: :sidebar do
     get :search, as: 'search'

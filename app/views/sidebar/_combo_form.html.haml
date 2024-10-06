@@ -51,6 +51,7 @@
       = t("defaults.tos", :tos => link_to(t("titles.tos"), "#tos", :id => "tos_link", :"data-toggle" => "modal", :"data-target" => "#tos")).html_safe
     .form-actions
       = f.submit t("buttons.sign_up"), :class => "btn btn-primary btn-block"
+  -# after sign in, showing cached _search form not _adminSearch
   %fieldset#user_sign_in_fields{:style => "display: none;", :disabled => true}
     .form-group
       %label.control-label{:for => "user_password", :id => "user_password_label"}
@@ -70,5 +71,6 @@
       = link_to t("links.remembered_password"), "#", :id => "user_remembered_password_link"
     .form-actions
       = f.submit t("buttons.email_password"), :class => "btn btn-primary btn-block"
+-# can't just change to adminSearch
 %a{:href => search_path, :class => "link btn btn-default"}
   = t("buttons.back")
