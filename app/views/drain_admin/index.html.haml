@@ -63,10 +63,6 @@
             Hide
   = render :partial => c("city.tos_partial_name"), layout: "layouts/modal", locals: {id: "tos", title: "Volunteer Waiver & Release Of Liability"}
   = render :partial => c("brand.details_partial_name"), layout: "layouts/modal", locals: {id: "details", title: "What Does it Mean To #{c("brand.imperative").capitalize()} a Drain?"}
-  = render :partial => c("brand.change_partial_name"), layout: "layouts/modal", locals: {id: "change", title: "Rename a Drain"}
-
-  = render :partial => c("brand.release_partial_name"), layout: "layouts/modal", locals: {id: "release", title: "Free a Drain"}
-
   = render :partial => c("brand.promote_partial_name"), layout: "layouts/modal", locals: {id: "promote", title: "Promote a User to Admin"}
   
 :javascript
