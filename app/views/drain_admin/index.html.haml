@@ -12,30 +12,25 @@
       .sidebar-content
         -# Corresponds to guideline div below 
         %div.hidden-xs
+          %h2.text-center
+            = "Drain Administrator Dashboard"
           %h3.text-center
             = t("titles.adopted_tagline", :count => Thing.adopted(current_city).count, :things => t("defaults.things"), :city => c("city.name"), :action_past => c("brand.adopted"))
             .small
               Last updated
               = local_date(Time.now, '%B %e, %Y')
-          %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
-            %button.btn.btn-block.btn-primary#tagline
-              = t("defaults.tagline", :default_tagline => c("brand.default_tagline"))
+ 
         #content
           = render :partial => "layouts/flash", :locals => {:flash => flash}
           - if signed_in?
-            = render :partial => "sidebar/search"
+            = render :partial => "adminSearch"
           - elsif @reset_password_token.present?
             = render :partial => 'passwords/edit'
-          - else
-            - video_url = c("site.video")
-            - if video_url.present?
-              %iframe{ :width => "100%", :src => video_url, :frameborder => "0", :allowfullscreen => "allowfullscreen" }
-            = render :partial => "sidebar/search"
         -# Corresponds to guideline div above
-        %div.hidden.visible-xs-block
-          %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
-            %button.btn.btn-block.btn-primary#tagline
-              = t("defaults.tagline", :default_tagline => c("brand.default_tagline"))
+        -# %div.hidden.visible-xs-block
+        -#   %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
+        -#     %button.btn.btn-block.btn-primary#tagline
+        -#       = t("defaults.tagline", :default_tagline => c("brand.default_tagline"))
         #logos
           .row.sidebar-logo-row
             .col-xs-1
@@ -68,6 +63,10 @@
             Hide
   = render :partial => c("city.tos_partial_name"), layout: "layouts/modal", locals: {id: "tos", title: "Volunteer Waiver & Release Of Liability"}
   = render :partial => c("brand.details_partial_name"), layout: "layouts/modal", locals: {id: "details", title: "What Does it Mean To #{c("brand.imperative").capitalize()} a Drain?"}
+  = render :partial => c("brand.report_partial_name"), layout: "layouts/modal", locals: {id: "report", title: "Generate a Drain Report"}
+  = render :partial => c("brand.promote_partial_name"), layout: "layouts/modal", locals: {id: "promote", title: "Promote a User to Admin"}
+  = render :partial => c("brand.demote_partial_name"), layout: "layouts/modal", locals: {id: "demote", title: "Demote an Admin User"}
+  
 :javascript
   this.config = #{current_config.to_json.html_safe}
   $(function() {

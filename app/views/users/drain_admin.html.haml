@@ -1,0 +1,17 @@
+-# called if user is municipal admin
+%h4
+  Drain Administration - 
+  = @thing.display_name.titleize
+  
+  %form
+    .form-group
+
+    %button.btn.btn-primary{:type => "submit"} Free this drain
+
+    .break 
+      
+    .form-group
+    %input#exampleFormControlInput1.form-control{:placeholder => @thing.display_name.titleize, :type => "text"}/
+    .form-group
+    %button.btn.btn-primary{:type => "submit"} Rename this drain
+
