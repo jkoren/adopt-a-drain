@@ -191,10 +191,9 @@ class BrandSchema
     required(:adopted).filled(:string)
     required(:adopting).filled(:string)
     required(:details_partial_name).filled(:string)
-    required(:change_partial_name).filled(:string)
-    required(:release_partial_name).filled(:string)
+    required(:report_partial_name).filled(:string)
     required(:promote_partial_name).filled(:string)
-
+    required(:demote_partial_name).filled(:string)
   end
 end
 

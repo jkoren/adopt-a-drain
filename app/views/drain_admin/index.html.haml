@@ -49,7 +49,7 @@
                 = image_tag "logos/massdep-logo.png", :alt => "Massachusetts Department of Environmental Protection", :title => "Massachusetts Department of Environmental Protection", :class => "datasf"
             .col-xs-2
             .col-xs-4
-              %a{:href => "mailto:j.korenstein@gamedaymatchup.net?subject=Inquiry about technology behind Adopt-a-drain"}
+              %a{:href => "mailto:adoptadrain@coronado.cloud?subject=Inquiry about Adopt-a-drain site"}
                 = image_tag "logos/coronado.png", :alt => "Coronado Consulting", :title => "Coronado Consulting", :class => "datasf"
             .col-xs-1
     .col-md-9.map-container
@@ -63,7 +63,9 @@
             Hide
   = render :partial => c("city.tos_partial_name"), layout: "layouts/modal", locals: {id: "tos", title: "Volunteer Waiver & Release Of Liability"}
   = render :partial => c("brand.details_partial_name"), layout: "layouts/modal", locals: {id: "details", title: "What Does it Mean To #{c("brand.imperative").capitalize()} a Drain?"}
+  = render :partial => c("brand.report_partial_name"), layout: "layouts/modal", locals: {id: "report", title: "Generate a Drain Report"}
   = render :partial => c("brand.promote_partial_name"), layout: "layouts/modal", locals: {id: "promote", title: "Promote a User to Admin"}
+  = render :partial => c("brand.demote_partial_name"), layout: "layouts/modal", locals: {id: "demote", title: "Demote an Admin User"}
   
 :javascript
   this.config = #{current_config.to_json.html_safe}
