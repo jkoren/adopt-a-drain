@@ -9,24 +9,25 @@
 
       .break 
         
-      .form-group
-      %input#exampleFormControlInput1.form-control{:placeholder => @thing.display_name.titleize, :type => "text"}/
-      .form-group
-      %button.btn.btn-primary{:type => "submit"} Rename this drain
+      -# .form-group
+      -# %input#exampleFormControlInput1.form-control{:placeholder => @thing.display_name.titleize, :type => "text"}/
+      -# .form-group
+      -# %button.btn.btn-primary{:type => "submit"} Rename this drain
 
 -# for reference - %adopt.haml.html 
 -# how does hitting the adopt button actually adopt a drain?
 -# what endpoint does it call to change the db?
 
--# %h2
--#   = t("titles.adopt", :titles_adopt => c("brand.titles_adopt").titleize)
--# = form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
--#   = f.hidden_field "id"
--#   = f.hidden_field "user_id", :value => current_user.id
--#   %fieldset.form-group
--#     = f.label "name", t("labels.name_thing", :thing => t("defaults.thing")), :id => "thing_name_label", :class => "control-label"
--#     = f.text_field "adopted_name", :value => @thing.name, :class => "form-control"
--#   %fieldset.form-group
--#     = f.submit c("brand.button_adopt"), :class => "btn btn-primary btn-block"
+%h2
+  -# = t("titles.adopt", :titles_adopt => c("brand.titles_adopt").titleize)
+= form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
+  = f.hidden_field "id"
+  -# to take ownership of drain change user_id to null? nil?
+  -# = f.hidden_field "user_id", :value => current_user.id
+  %fieldset.form-group
+    = f.label "name", "Rename this drain", :class => "control-label"
+    = f.text_field "adopted_name", :value => @thing.display_name.titleize, :class => "form-control"
+  %fieldset.form-group
+    = f.submit "Rename", :class => "btn btn-primary btn-block"
 
--#   = render partial: 'things/detail'
+  = render partial: 'things/detail'
