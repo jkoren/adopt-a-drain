@@ -3,14 +3,23 @@
 
 %h2
   Drain Administration
-%h4
+%h3
   = @thing.display_name.titleize
-  = form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
-    %form
-      .form-group
-      %button.btn.btn-primary{:type => "submit"} Free this drain
 
-      .break 
+-# problem - the 2 submits are getting confused.  can't have more than one submit on a form?
+
+%h2
+= form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
+  = f.hidden_field "id"
+  -# to remove ownership of drain change name and user_id to nil
+  = f.hidden_field "user_id", :value => nil
+  = f.hidden_field "display_name", :value => nil
+  %fieldset.form-group
+    = f.submit "Free this drain", :class => "btn btn-primary btn-block"
+
+  = render partial: 'things/detail'    
+
+.break 
 
 -# how does hitting the adopt button actually adopt a drain?
 -# what endpoint does it call to change the db?
@@ -18,7 +27,6 @@
 %h2
 = form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
   = f.hidden_field "id"
-  -# to take ownership of drain change name and user_id to null? nil?
   = f.hidden_field "user_id", :value => @thing.user_id
   %fieldset.form-group
     = f.label "name", "Rename this drain", :class => "control-label"
