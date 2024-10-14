@@ -5,7 +5,8 @@
 Administration Page
 %h2
   = @thing.display_name.titleize
-
+%h3
+  = @thing.user.name
 -# problem - the 2 submits are getting confused.  can't have more than one submit on a form?
 -# solution - use radio button 2 alternate between the 2 forms 
 -# see combo form 
