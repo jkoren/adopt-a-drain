@@ -1,6 +1,8 @@
 -# called if user is municipal admin
 -# for reference - %adopt.haml.html
 
+
+Administration Page
 %h2
   = @thing.display_name.titleize
 
@@ -8,31 +10,17 @@
 -# solution - use radio button 2 alternate between the 2 forms 
 -# see combo form 
 
--# %h2
--# .form-check
--#   %input#freeDrain.form-check-input{checked: "checked", name: "flexRadioDefault", type: "radio"}/
--#   %label.form-check-label{for: "freeDrain"}
--#     Free this drain
--# .form-check
--#   %input#renameDrain.form-check-input{ name: "flexRadioDefault", type: "radio"}/
--#   %label.form-check-label{for: "renameDrain"}
--#     Rename this drain
-
--# %fieldset#freeDrain 
--#   Freeing 
--# %fieldset#renameDrain{:style => "display: none;", :disabled => true}
--#   Renaming 
 
 %h2
 = form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
   = f.hidden_field "id"
   -# to remove ownership of drain change name and user_id to nil
-  = f.hidden_field "user_id", :value => nil
-  = f.hidden_field "display_name", :value => nil
-  %fieldset.form-group
-    = f.submit "Free this drain", :class => "btn btn-primary btn-block"
 
-  = render partial: 'things/detail'    
+  -# = f.hidden_field "user_id", :value => nil
+  -# = f.hidden_field "display_name", :value => nil
+  -# %fieldset.form-group
+    -# = f.submit "Free this drain", :class => "btn btn-primary btn-block"
+  -# = render partial: 'things/detail'    
 
 .break 
 
