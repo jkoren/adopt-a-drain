@@ -1,6 +1,9 @@
 -# called if user is municipal admin
+-# for reference - %adopt.haml.html
+
+%h2
+  Drain Administration
 %h4
-  Drain Administration - 
   = @thing.display_name.titleize
   = form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
     %form
@@ -8,22 +11,15 @@
       %button.btn.btn-primary{:type => "submit"} Free this drain
 
       .break 
-        
-      -# .form-group
-      -# %input#exampleFormControlInput1.form-control{:placeholder => @thing.display_name.titleize, :type => "text"}/
-      -# .form-group
-      -# %button.btn.btn-primary{:type => "submit"} Rename this drain
 
--# for reference - %adopt.haml.html 
 -# how does hitting the adopt button actually adopt a drain?
 -# what endpoint does it call to change the db?
 
 %h2
-  -# = t("titles.adopt", :titles_adopt => c("brand.titles_adopt").titleize)
 = form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
   = f.hidden_field "id"
-  -# to take ownership of drain change user_id to null? nil?
-  -# = f.hidden_field "user_id", :value => current_user.id
+  -# to take ownership of drain change name and user_id to null? nil?
+  = f.hidden_field "user_id", :value => @thing.user_id
   %fieldset.form-group
     = f.label "name", "Rename this drain", :class => "control-label"
     = f.text_field "adopted_name", :value => @thing.display_name.titleize, :class => "form-control"
