@@ -24,6 +24,13 @@ Rails.application.routes.draw do
     get :edit_profile, as: 'edit_profile'
   end
 
+  # this is not the problem.. the email still comes when the below is commented out..
+
+  scope '/drain_admin', controller: :free_drain do
+    puts "entering routes.rb"
+    get :free_drain, as: 'free_drain'
+  end
+
   resource :reminders
   resource :things
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
