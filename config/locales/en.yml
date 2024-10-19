@@ -3,7 +3,7 @@
 en:
   buttons:
     abandon: "Abandon this %{thing}"
-    free: "Free this %{thing}2 also works"
+    free: "Free this %{thing}"
     back: "Back"
     change_password: "Change my password"
     close: "Close"
