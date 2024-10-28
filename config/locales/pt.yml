@@ -3,6 +3,7 @@
 pt:
   buttons:
     abandon: "Abandonar esse %{thing}"
+    free: "Abandonar esse %{thing}"
     adopt: "Adote!"
     back: "De volta"
     change_password: "Alterar a minha senha"

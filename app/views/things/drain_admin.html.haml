@@ -1,0 +1,32 @@
+-# called if user is municipal admin
+-# for reference - %adopt.haml.html
+
+
+Drain Administration
+%h2
+  = @thing.display_name.titleize
+
+
+
+%h2
+= form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
+  = f.hidden_field "id"
+  -# to remove ownership of drain change name and user_id to nil
+
+  -# = f.hidden_field "user_id", :value => nil    
+
+  %fieldset.form-group
+  = render partial: 'things/free' 
+.break 
+
+%h2
+= form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
+  = f.hidden_field "id"
+  = f.hidden_field "user_id", :value => @thing.user_id
+  %fieldset.form-group
+    = f.label "name", "Rename this drain", :class => "control-label"
+    = f.text_field "adopted_name", :value => @thing.display_name.titleize, :class => "form-control"
+  %fieldset.form-group
+    = f.submit "Rename", :class => "btn btn-primary btn-block"
+
+  = render partial: 'things/detail'

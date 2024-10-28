@@ -3,6 +3,7 @@
 fr:
   buttons:
     abandon: "Abandonner cette %{thing}"
+    free: "Abandonner cette %{thing}"
     adopt: "Adopter!"
     back: "Retour"
     change_password: "Changer mon mot de passe"

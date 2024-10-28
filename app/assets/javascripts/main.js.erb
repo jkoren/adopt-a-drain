@@ -452,6 +452,12 @@ $(function() {
     });
   }
 
+<%# this is the plumbing behind the sidebar combo screen controlled by a radio buttons  %>
+    <%# .radio
+      = f.label "new" , radio_button_tag("user", "new", true).html_safe + t("labels.user_new")
+    .radio
+      = f.label "existing", radio_button_tag("user", "existing").html_safe + t("labels.user_existing")
+       %>
   $('.sidebar').on('click', '#combo-form input[type="radio"]', function() {
     var radioInput = $(this);
     if('new' === radioInput.val()) {
