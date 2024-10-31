@@ -1,29 +1,16 @@
--# called if user is municipal admin
+-# to be called if user is municipal admin
 -# for reference - %adopt.haml.html
 
 %h2
   = "Drain Administration"
 %h4
   = @thing.display_name.titleize
-.break 
 
-Experimental Buttons
-= button_to 'Rename', rename_path(@thing), method: :put, class: "btn btn-primary btn-block"
-
-Working Buttons
 = button_to 'Free', free_path(@thing), method: :put, class: "btn btn-primary btn-block"
-
-Buttons that call Alerts:
--# %button{onclick: "alert('Free processed.')", class: "btn btn-primary btn-block"}
--#   Free
-
-%button{onclick: "alert('Rename processed.')", class: "btn btn-primary btn-block"}
-  Rename
 
 = form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
   = f.hidden_field "id"
 
   %fieldset.form-group
-  -# = render partial: 'things/free' 
 .break 
   = render partial: 'things/rename'

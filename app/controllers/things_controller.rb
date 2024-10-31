@@ -33,11 +33,6 @@ class ThingsController < ApplicationController
     # redirect_to things_path(@thing)
   end
 
-  def rename
-    @thing = Thing.find(params[:id])
-    @thing.rename_thing #how do I pass parameter with new name?
-  end
-
 private
 
   def send_adoption_email(user, thing)

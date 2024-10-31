@@ -61,16 +61,9 @@ class Thing < ApplicationRecord
   end
 
   def free_thing
-    puts "freeing.."
     self.adopted_name = nil
     self.user_id = nil
     self.save
-  end
-
-  def rename_thing
-    puts "renaming.."
-    self.adopted_name = "" #should be parameter with new adopted name
-    # self.save
   end
 
 end
