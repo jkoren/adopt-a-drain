@@ -26,6 +26,18 @@ class ThingsController < ApplicationController
     end
   end
 
+  def free
+    @thing = Thing.find(params[:id])
+    @thing.free_thing
+    # is the below needed?
+    # redirect_to things_path(@thing)
+  end
+
+  def rename
+    @thing = Thing.find(params[:id])
+    @thing.rename_thing #how do I pass parameter with new name?
+  end
+
 private
 
   def send_adoption_email(user, thing)
@@ -40,4 +52,5 @@ private
   def thing_params
     params.require(:thing).permit(:adopted_name, :user_id)
   end
+
 end

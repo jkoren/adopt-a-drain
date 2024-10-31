@@ -1,3 +1,9 @@
+-# this whole form does not show if user not signed in - why not?
+-# but it does work if the user is signed in
+-# because it is in the wrong directory?
+-# but _search.html.haml works in normal mode
+-# assume something in app/assets/javascripts/main.js.erb?
+-# will need at least a sign_in button
 = form_tag "/address", :method => "get", :id => "address_form", :class => "search-form" do
   = hidden_field_tag "limit", params[:limit] || 25
   = hidden_field_tag "current_user_id", current_user.try(:id)
@@ -24,16 +30,14 @@
   %a.demote{:href => "#demote", :"data-toggle" => "modal", :"data-target" => "#demote"}
     %button.btn.btn-block.btn-primary#tagline
       = "Remove an administrator"
-
   %div
     %dl
     .break
-
   %a{:href => edit_user_registration_path, :id => "edit_profile_link", :class => "btn btn-warning btn-block"}
     = t("buttons.edit_profile")
   %a{:href => destroy_user_session_path, :id => "sign_out_link", :class => "btn btn-danger btn-block"}
     = t("buttons.sign_out")
 - else
-  -# should be adminComboForm?
+  admin not signed in!
   %a{:href => combo_form_path, :class => "link btn btn-secondary"}
     = t("buttons.sign_up_or_in")
