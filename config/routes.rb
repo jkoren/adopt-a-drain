@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   get '/drain_admin', to: 'drain_admin#index', as: 'drain_admin'
 
   put 'things/:id/free', to: 'things#free', as: 'free'
-  put 'things/:id/rename', to: 'things#rename', as: 'rename'
 
   scope '/sidebar', controller: :sidebar do
     get :search, as: 'search'
