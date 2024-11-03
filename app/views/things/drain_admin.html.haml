@@ -3,7 +3,7 @@
 
 %h2
   = "Drain Administration"
-%h4
+%h4.text-center
   = @thing.display_name.titleize
 
 = button_to 'Free', free_path(@thing), method: :put, class: "btn btn-primary btn-block"

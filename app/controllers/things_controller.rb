@@ -30,7 +30,7 @@ class ThingsController < ApplicationController
     @thing = Thing.find(params[:id])
     @thing.free_thing
     # is the below needed?
-    # redirect_to things_path(@thing)
+    respond_with @thing
   end
 
 private

@@ -16,9 +16,9 @@
             = "Drain Administrator Dashboard"
           %h3.text-center
             = t("titles.adopted_tagline", :count => Thing.adopted(current_city).count, :things => t("defaults.things"), :city => c("city.name"), :action_past => c("brand.adopted"))
-            .small
-              Last updated
-              = local_date(Time.now, '%B %e, %Y')
+            -# .small
+            -#   Last updated
+            -#   = local_date(Time.now, '%B %e, %Y')
  
         #content
           = render :partial => "layouts/flash", :locals => {:flash => flash}
@@ -26,6 +26,11 @@
             = render :partial => "adminSearch"
           - elsif @reset_password_token.present?
             = render :partial => 'passwords/edit'
+          - else
+            -# - video_url = c("site.video")
+            -# - if video_url.present?
+            -#   %iframe{ :width => "100%", :src => video_url, :frameborder => "0", :allowfullscreen => "allowfullscreen" }
+            = render :partial => "sidebar/search"
         -# Corresponds to guideline div above
         -# %div.hidden.visible-xs-block
         -#   %a.details{:href => "#details", :"data-toggle" => "modal", :"data-target" => "#details"}
