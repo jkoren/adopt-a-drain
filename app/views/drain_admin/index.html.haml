@@ -15,10 +15,9 @@
           %h2.text-center
             = "Drain Administrator Dashboard"
           %h3.text-center
+            = current_user.email
+          %h3.text-center
             = t("titles.adopted_tagline", :count => Thing.adopted(current_city).count, :things => t("defaults.things"), :city => c("city.name"), :action_past => c("brand.adopted"))
-            -# .small
-            -#   Last updated
-            -#   = local_date(Time.now, '%B %e, %Y')
  
         #content
           = render :partial => "layouts/flash", :locals => {:flash => flash}
