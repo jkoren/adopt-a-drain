@@ -5,9 +5,7 @@ class InfoWindowController < ApplicationController
     @thing = Thing.find_by(id: params[:thing_id])
     view = begin
       if @thing.adopted?
-
-        # need to pull @user.munical_admin from database
-        municipal_admin = true
+        municipal_admin = current_user.admin
 
         if user_signed_in?
           if municipal_admin
