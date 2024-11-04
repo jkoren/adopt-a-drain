@@ -29,8 +29,8 @@ class ThingsController < ApplicationController
   def free
     @thing = Thing.find(params[:id])
     @thing.free_thing
-    # is the below needed?
-    respond_with @thing
+    # how to refresh after hitting free button?  the below does not work
+    # respond_with @thing
   end
 
 private
