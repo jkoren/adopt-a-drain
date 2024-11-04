@@ -15,7 +15,7 @@
           %h2.text-center
             = "Drain Administrator Dashboard"
           %h3.text-center
-            = current_user.email
+            = current_user ? current_user.email : nil
           %h3.text-center
             = t("titles.adopted_tagline", :count => Thing.adopted(current_city).count, :things => t("defaults.things"), :city => c("city.name"), :action_past => c("brand.adopted"))
  
