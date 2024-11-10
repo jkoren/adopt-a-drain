@@ -29,8 +29,7 @@ class ThingsController < ApplicationController
   def free
     @thing = Thing.find(params[:id])
     @thing.free_thing
-    # how to refresh after hitting free button?  the below does not work
-    # respond_with @thing
+    redirect_to(root_path)
   end
 
 private
