@@ -28,6 +28,12 @@
       %div
         %dl
         .break
+    - else 
+      %h5.text-center
+        = "You must be an administrator to use this view"
+      %div
+        %dl
+        .break
   %a{:href => edit_user_registration_path, :id => "edit_profile_link", :class => "btn btn-warning btn-block"}
     = t("buttons.edit_profile")
   %a{:href => destroy_user_session_path, :id => "sign_out_link", :class => "btn btn-danger btn-block"}
