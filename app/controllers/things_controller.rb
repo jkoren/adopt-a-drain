@@ -29,7 +29,7 @@ class ThingsController < ApplicationController
   def free
     @thing = Thing.find(params[:id])
     @thing.free_thing
-    redirect_to(root_path)
+    redirect_to(drain_admin_path)
   end
 
 private
