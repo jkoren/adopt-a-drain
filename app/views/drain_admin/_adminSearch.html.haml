@@ -1,9 +1,3 @@
--# this whole form does not show if user not signed in - why not?
--# but it does work if the user is signed in
--# because it is in the wrong directory?
--# but _search.html.haml works in normal mode
--# assume something in app/assets/javascripts/main.js.erb?
--# will need at least a sign_in button
 = form_tag "/address", :method => "get", :id => "address_form", :class => "search-form" do
   = hidden_field_tag "limit", params[:limit] || 25
   = hidden_field_tag "current_user_id", current_user.try(:id)

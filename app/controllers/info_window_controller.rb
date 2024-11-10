@@ -9,7 +9,7 @@ class InfoWindowController < ApplicationController
 
         if user_signed_in?
           if municipal_admin
-            'things/drain_admin'
+            'things/free_or_rename'
           else
             current_user == @thing.user ? 'users/thank_you' : 'users/profile'
           end
