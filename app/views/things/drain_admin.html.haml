@@ -5,12 +5,11 @@
   = "Drain Administration"
 %h4.text-center
   = @thing.display_name.titleize
-
+.break 
 = button_to 'Free', free_path(@thing), method: :put, class: "btn btn-primary btn-block"
 
 = form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
   = f.hidden_field "id"
 
   %fieldset.form-group
-.break 
   = render partial: 'things/rename'
