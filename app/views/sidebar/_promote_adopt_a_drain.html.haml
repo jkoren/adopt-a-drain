@@ -1,11 +1,5 @@
-%form
-  .form-group
-    %label{:for => "exampleFormControlInput1"} User to promote
-    %select#post_author_id{name: "post[author_id]"}
-      %option{value: ""} Please select
-      %option{selected: "selected", value: "1"} D. Heinemeier Hansson
-      %option{value: "2"} D. Thomas
-      %option{value: "3"} M. Clark
-
+= form_for :user, :html => {:id => "promote-form"} do |f|
+  %fieldset#common_fields
     .form-group
+      = f.select "user", non_admin_emails, {:include_blank => "Select a user"}, {:class => "form-control"}
     %button.btn.btn-primary{:type => "submit"} Promote
