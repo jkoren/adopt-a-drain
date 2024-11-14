@@ -38,4 +38,15 @@ class User < ApplicationRecord
   def will_save_change_to_email?
     false
   end
+
+  def promote_user
+    self.admin = true
+    self.save
+  end
+
+  def demote_user
+    self.admin = false
+    self.save
+  end
+
 end

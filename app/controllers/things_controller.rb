@@ -18,12 +18,18 @@ class ThingsController < ApplicationController
   def update
     @thing = Thing.find(params[:id])
     if @thing.update(thing_params)
-      send_adoption_email(@thing.user, @thing) if @thing.adopted?
+      send_adoption_email(@thing.user, @thing) if @thing.adopted(current_city)?
 
       respond_with @thing
     else
       render(json: {errors: @thing.errors}, status: :internal_server_error)
     end
+  end
+
+  def free
+    @thing = Thing.find(params[:id])
+    @thing.free_thing
+    redirect_to(drain_admin_path)
   end
 
 private
@@ -40,4 +46,5 @@ private
   def thing_params
     params.require(:thing).permit(:adopted_name, :user_id)
   end
+
 end

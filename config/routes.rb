@@ -18,21 +18,19 @@ Rails.application.routes.draw do
   get '/sitemap', to: 'sitemaps#index', as: 'sitemap'
   get '/drain_admin', to: 'drain_admin#index', as: 'drain_admin'
 
+  put 'things/:id/free', to: 'things#free', as: 'free'
+  # put 'users/:id/promote', to: 'users#promote', as: 'promote_user'
+  # put 'users/:id/demote', to: 'users#demote', as: 'demote_user'
+
   scope '/sidebar', controller: :sidebar do
     get :search, as: 'search'
     get :combo_form, as: 'combo_form'
     get :edit_profile, as: 'edit_profile'
   end
 
-  # this is not the problem.. the email still comes when the below is commented out..
-
-  scope '/drain_admin', controller: :free_drain do
-    puts "entering routes.rb"
-    get :free_drain, as: 'free_drain'
-  end
-
   resource :reminders
   resource :things
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  # mount RailsAdmin::Engine => '/admin/user', :as => 'rails_user_admin'
   root to: 'main#index'
 end
