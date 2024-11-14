@@ -18,7 +18,7 @@ class ThingsController < ApplicationController
   def update
     @thing = Thing.find(params[:id])
     if @thing.update(thing_params)
-      send_adoption_email(@thing.user, @thing) if @thing.adopted?
+      send_adoption_email(@thing.user, @thing) if @thing.adopted(current_city)?
 
       respond_with @thing
     else

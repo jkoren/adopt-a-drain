@@ -31,6 +31,15 @@ class UsersController < Devise::RegistrationsController
     end
   end
 
+  def promote
+    @user = User.find(params[:id])  # should find by email instead?
+    @user.promote_user
+    # See send_adoption_email(user, thing) in /app/controllers/things_controller.rb ?
+  end
+
+  def demote
+  end
+
 private
 
   def sign_up_params

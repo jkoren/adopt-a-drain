@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get '/drain_admin', to: 'drain_admin#index', as: 'drain_admin'
 
   put 'things/:id/free', to: 'things#free', as: 'free'
+  # put 'users/:id/promote', to: 'users#promote', as: 'promote_user'
+  # put 'users/:id/demote', to: 'users#demote', as: 'demote_user'
 
   scope '/sidebar', controller: :sidebar do
     get :search, as: 'search'
@@ -29,5 +31,6 @@ Rails.application.routes.draw do
   resource :reminders
   resource :things
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  # mount RailsAdmin::Engine => '/admin/user', :as => 'rails_user_admin'
   root to: 'main#index'
 end

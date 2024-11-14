@@ -1,5 +1,22 @@
+-# what route to call when selected?
+-# user_promote
+-# and how to call?
+
+-# this looks good but doesn't work 
 = form_for :user, :html => {:id => "promote-form"} do |f|
   %fieldset#common_fields
     .form-group
       = f.select "user", non_admin_emails, {:include_blank => "Select a user"}, {:class => "form-control"}
     %button.btn.btn-primary{:type => "submit"} Promote
+
+  -# when chosen, this should call the promote_path with the selected email address
+  -# %or 
+  -# call a user screen and let person adjust the admin field
+
+-# other options tried: 
+
+  -# = form_for :user, :html => {:id => "promote-form"} do |f|
+
+  -# = form_for :user, :url => promote_user_path(@id), :method => put, :html => {:id => "test"} do |f|
+
+  -# = form_for :user, :url => user_registration_path, :method => patch, :html => {:id => "test"} do |f|
