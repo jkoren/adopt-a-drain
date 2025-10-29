@@ -1,3 +1,4 @@
+-# the added functionality can be done with the more powerful /admin functionality.  Access via the /admin path, for example: http https://somerville.mysticdrains.org/admin
 = form_tag "/address", :method => "get", :id => "address_form", :class => "search-form" do
   = hidden_field_tag "limit", params[:limit] || 25
   = hidden_field_tag "current_user_id", current_user.try(:id)
@@ -11,29 +12,34 @@
     = submit_tag t("buttons.find", :thing => t("defaults.things")), :class => "btn btn-primary btn-block"
 - if signed_in?
   = render :partial => "sidebar/nothing"
-  _adminSearch.html.haml
+  -# _adminSearch.html.haml
   %div
     %dl
     .break 
-  %a.report{:href => "#report", :"data-toggle" => "modal", :"data-target" => "#report"}
-    %button.btn.btn-block.btn-primary#tagline
-      = "Generate drain report"  
-  %a.promote{:href => "#promote", :"data-toggle" => "modal", :"data-target" => "#promote"}
-    %button.btn.btn-block.btn-primary#tagline
-      = "Make a user administrator"
-  %a.demote{:href => "#demote", :"data-toggle" => "modal", :"data-target" => "#demote"}
-    %button.btn.btn-block.btn-primary#tagline
-      = "Remove an administrator"
-
-  %div
-    %dl
-    .break
-
+    - if current_user.admin
+      %a.report{:href => "#report", :"data-toggle" => "modal", :"data-target" => "#report"}
+        %button.btn.btn-block.btn-primary#tagline
+          = "Generate drain report"  
+      %a.promote{:href => "#promote", :"data-toggle" => "modal", :"data-target" => "#promote"}
+        %button.btn.btn-block.btn-primary#tagline
+          = "Make a user administrator"
+      %a.demote{:href => "#demote", :"data-toggle" => "modal", :"data-target" => "#demote"}
+        %button.btn.btn-block.btn-primary#tagline
+          = "Remove an administrator"
+      %div
+        %dl
+        .break
+    - else 
+      %h5.text-center
+        = "You must be an administrator to use drain administrator functions"
+      %div
+        %dl
+        .break
   %a{:href => edit_user_registration_path, :id => "edit_profile_link", :class => "btn btn-warning btn-block"}
     = t("buttons.edit_profile")
   %a{:href => destroy_user_session_path, :id => "sign_out_link", :class => "btn btn-danger btn-block"}
     = t("buttons.sign_out")
 - else
-  -# should be adminComboForm?
+  admin not signed in!
   %a{:href => combo_form_path, :class => "link btn btn-secondary"}
     = t("buttons.sign_up_or_in")

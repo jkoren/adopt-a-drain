@@ -26,6 +26,12 @@ class ThingsController < ApplicationController
     end
   end
 
+  def free
+    @thing = Thing.find(params[:id])
+    @thing.free_thing
+    redirect_to(drain_admin_path)
+  end
+
 private
 
   def send_adoption_email(user, thing)
@@ -40,4 +46,5 @@ private
   def thing_params
     params.require(:thing).permit(:adopted_name, :user_id)
   end
+
 end

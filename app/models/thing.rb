@@ -59,4 +59,11 @@ class Thing < ApplicationRecord
   def as_json(options = {})
     super({methods: [:display_name]}.merge(options))
   end
+
+  def free_thing
+    self.adopted_name = nil
+    self.user_id = nil
+    self.save
+  end
+
 end

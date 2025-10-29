@@ -65,7 +65,7 @@ docker compose exec web bundle exec rake data:load_drains cities=everett write=t
 
 Now you can access the site at http://localhost:3000. This loads the default city, everett. To access a different city, use the city name as the subdomain, e.g. http://somerville.localhost:3000. Any city with a file under `config/cities` can be accessed this way.
 
-To access a city's administrative dashboard to rename or release (AKA unadopt) drains, use the /drain_admin route, as in http://somerville.localhost:3000/drain_admin.
+To access a city's administrative dashboard to rename or release (AKA unadopt) drains, login as a user with Admin privilege (user.admin = true) and use the /drain_admin route, as in http://somerville.localhost:3000/drain_admin or for more functionality use rails_admin with the admin route http://somerville.localhost:3000/admin
 
 To stop the app, run `docker compose down`. To start it again, run `docker compose up`. This will run the app in the foregound and stop it when you press `ctrl-c`. The database will be persisted between runs. To stop the app and remove the database, run `docker compose down -v`.
 
@@ -175,7 +175,7 @@ Note that the system report is configured with the `system` city name. Then, run
 
 # Send usage report
 
-Usage reports are automatically sent monthly using [Herokue Scheduler](https://devcenter.heroku.com/articles/scheduler).
+Usage reports are automatically sent monthly using [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler).
 
 To manually send reports to some or all cities:
 

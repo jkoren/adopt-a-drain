@@ -13,6 +13,7 @@
 # See DevOps.md
 
 def filter_reports(cities)
+  # fetch report for past 30 days
   period_in_days = ENV.fetch('period_in_days', 30).to_i
   now = Time.zone.now
   cities.filter do |c|
@@ -25,6 +26,10 @@ def filter_reports(cities)
   end
 end
 
+  # sends a report on some periodic basis?
+  # if so, can send the birthday email the same way?
+  # how does it know how often to do this?
+
 namespace 'mail' do
   task send_reports: :environment do
     cities = ENV.fetch('cities')
@@ -34,9 +39,7 @@ namespace 'mail' do
                cities.split(' ').map { |c| CityHelper.check(c) }
              end
     cities = filter_reports(cities)
-
     puts "Processing #{cities}"
-
     cities.each do |city|
       puts "Sending report for #{city}"
       AdoptionsMailer.with(city: city).usage_report.deliver_now
@@ -53,18 +56,25 @@ namespace 'mail' do
 
   task configure_reports: :environment do
     config = JSON.parse ENV.fetch('config')
-
     puts "Processing #{config}"
-
     config.each do |c|
       name = c.fetch('city')
       name = name == 'system' ? name : CityHelper.check(name)
       emails = c.fetch('emails')
-
       puts "Configuring #{name}"
-
       city = City.find_or_initialize_by(name: name)
       city.update(export_recipient_emails: emails)
     end
   end
+
+  task send_birthday_email: :environment do
+    things.each do |thing|
+      if thing.user && thing.updated_at.month == Date.today.month && thing.updated_at.day == Date.today.day && Date.today.year > thing.updated_at.year
+          # send birthday email
+        # AdoptionsMailer.with(city: city).usage_report.deliver_now
+        BirthdayMailer.with(thing: thing)
+      end
+    end
+  end
+
 end

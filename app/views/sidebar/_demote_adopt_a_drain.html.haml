@@ -1,11 +1,5 @@
-%form
-  .form-group
-    %label{:for => "exampleFormControlInput1"} User to demote
-    %input#exampleFormControlInput1.form-control{:placeholder => "john.smith@email.com", :type => "text"}/
-
+= form_for :user, :html => {:id => "demote-form"} do |f|
+  %fieldset#common_fields
     .form-group
-    %label{:for => "exampleFormControlInput2"} Name:
-
-    .form-group
-    %button.btn.btn-primary{:type => "submit"} Demote
-  
+      = f.select "user", admin_emails, {:include_blank => "Select an admin"}, {:class => "form-control"}
+    %button.btn.btn-primary{:type => "submit"} Remove admin privilege 

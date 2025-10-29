@@ -1,0 +1,13 @@
+-# only called if user is an admin
+-# for reference - %adopt.haml.html
+
+%h2
+  = "Drain Administration"
+%h4.text-center
+  = @thing.display_name.titleize
+= button_to 'Free', free_path(@thing), method: :put, class: "btn btn-primary btn-block"
+.break 
+= form_for :thing, :url => things_path, :method => :put, :html => {:id => "adoption_form"} do |f|
+  = f.hidden_field "id"
+  %fieldset.form-group
+  = render partial: 'things/rename'
