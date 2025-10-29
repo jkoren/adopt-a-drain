@@ -2,92 +2,22 @@
 
 # rubocop:disable Metrics/AbcSize
 
-def round_off(time, seconds = 60)
-  Time.at((time.to_f / seconds).round * seconds).utc
-end
+# see adoptions_mailer.rb
 
 class BirthdayMailer < ApplicationMailer
-  # Birthday message for all things for a single city.
-  def usage_report
-    @current_city = params[:city]
-    @city = City.where(name: @current_city).first!
-    config = CityHelper.config(@current_city)
-
-    @users = User.where(city_domain: @city.name)
-    @adopted_drains = Thing.where(city_domain: @city.name).where.not(user_id: nil)
-
-    compute_stats
-    attach_files adoptions: true, signups: true
-
-    mail(
-      from: "#{config.brand.name} #{config.city.name} <noreply@mysticdrains.org>",
-      to: @city.export_recipient_emails,
-      subject: "Usage Report for #{config.brand.name} #{config.city.name}",
-      reply_to: config.org.email,
-    )
-
-    @city.update(
-      last_export_time: @export_time, last_adoption_count: @adoption_count, last_user_count: @user_count,
-    )
-  end
-
-  # Usage across all cities for MyRWA
-  def system_usage_report
-    city = City.where(name: 'system').first!
-    recipients = city.export_recipient_emails
-    @users = User.all
-    @adopted_drains = Thing.where.not(user_id: nil)
-
-    compute_stats
-    attach_files adoptions: true, signups: true
+  # Birthday message for all drains for a single city.
+  def birthday_letter
+    # for all drains in the city
+    @city_drains = Thing.where(city_domain: @city.name)
+    @city_adopted_drains = @city_drains.where.not(user_id: nil)
+    # do filter here or in mail_adoptions.rake?
+    @anniversary_drains = @city_adopted_drains.where(updated_at.month == Date.today.month && updated_at.day == Date.today.day && Date.today.year > updated_at.year)
 
     mail(
       from: "Adopt-a-Drain Mystic River <noreply@mysticdrains.org>",
-      to: recipients,
-      subject: "System Usage Report for Adopt-a-Drain Mystic River",
+      to: @thing.user.email_address,
+      subject: "Happy Birthday to Our Storm Drain!",
     )
-
-    city.update(last_export_time: @export_time)
   end
 
-  def days_since_last_report
-    d = (@export_time - @city.last_export_time).to_f
-    t = 1.day.to_f
-    (d / t).round
-  end
-  helper_method :days_since_last_report
-
-  def compute_stats
-    @export_time = Time.zone.now
-    @user_count = @users.count
-    @adoption_count = @adopted_drains.count
-  end
-
-  def attach_files(signups: false, adoptions: false)
-    date = @export_time.strftime('%m-%d-%Y')
-    attachments["signups-#{date}.csv"] = signups_csv if signups
-    attachments["adopted-drains-#{date}.csv"] = adopted_drains_csv if adoptions
-  end
-
-  def adopted_drains_csv
-    CSV.generate(
-      write_headers: true,
-      headers: %w[id city email_address drain_name drain_updated_at lat lng],
-    ) do |csv|
-      @adopted_drains.each do |t|
-        csv << [t.city_id, t.city_domain, t.user.email, t.adopted_name, t.updated_at, t.lat, t.lng]
-      end
-    end
-  end
-
-  def signups_csv
-    CSV.generate(
-      write_headers: true,
-      headers: %w[first_name last_name email city joined_at],
-    ) do |csv|
-      @users.each do |u|
-        csv << [u.first_name, u.last_name, u.email, u.city_domain, u.created_at]
-      end
-    end
-  end
 end
